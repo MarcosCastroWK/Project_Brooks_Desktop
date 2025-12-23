@@ -1,0 +1,921 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6A2D034D-A057-435A-BAEE-2E33F77A884E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>formSILC</RootNamespace>
+    <AssemblyName>formSILC</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>D:\Deploy formSilc\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <WebPage>publish.htm</WebPage>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>F8D41C5C04E71186EAB1F47CFC962A10E1ABEE84</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>formSILC_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.3.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="Geckofx-Core, Version=45.0.34.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=x86">
+      <HintPath>..\packages\Geckofx45.45.0.34\lib\net45\Geckofx-Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Geckofx-Winforms, Version=45.0.34.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=x86">
+      <HintPath>..\packages\Geckofx45.45.0.34\lib\net45\Geckofx-Winforms.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.26.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.26.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.3.8.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.3.8\lib\net462\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.3.8.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.3.8\lib\net462\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.8.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.8\lib\net462\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.8.0.0\lib\net462\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.8.0.0\lib\net462\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=8.0.0.1, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Binder.8.0.1\lib\net462\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.FileExtensions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.FileExtensions.8.0.0\lib\net462\Microsoft.Extensions.Configuration.FileExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Json.8.0.0\lib\net462\Microsoft.Extensions.Configuration.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Abstractions.8.0.0\lib\net462\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Physical, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Physical.8.0.0\lib\net462\Microsoft.Extensions.FileProviders.Physical.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileSystemGlobbing, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileSystemGlobbing.8.0.0\lib\net462\Microsoft.Extensions.FileSystemGlobbing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.8.0.0\lib\net462\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="MySql.Data, Version=9.0.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.9.0.0\lib\net48\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp.Net2, Version=102.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.Net2.1.1.11\lib\net20\RestSharp.Net2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.8.0.0\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.8.0.1\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Pipelines, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.5.0.2\lib\net461\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.8.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.8.0.0\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Xml.Linq.3.5.21022.801\lib\net20\System.Xml.Linq.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ZstdSharp, Version=0.8.0.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZstdSharp.Port.0.8.0\lib\net462\ZstdSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DESTINOFINAL.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DESTINOFINAL.Designer.cs">
+      <DependentUpon>DESTINOFINAL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CLIENTE.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CLIENTE.Designer.cs">
+      <DependentUpon>CLIENTE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CAMINHAO.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CAMINHAO.Designer.cs">
+      <DependentUpon>CAMINHAO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChaves.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChaves.Designer.cs">
+      <DependentUpon>frmChaves.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMTReLancar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMTReLancar.Designer.cs">
+      <DependentUpon>frmMTReLancar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAtualizacaoDados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAtualizacaoDados.Designer.cs">
+      <DependentUpon>frmAtualizacaoDados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBrowserMTRe_Consulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBrowserMTRe_Consulta.Designer.cs">
+      <DependentUpon>frmBrowserMTRe_Consulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBrowserMTRe .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBrowserMTRe .Designer.cs">
+      <DependentUpon>frmBrowserMTRe .cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBrowserIMA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBrowserIMA.Designer.cs">
+      <DependentUpon>frmBrowserIMA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBrowserNF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBrowserNF.Designer.cs">
+      <DependentUpon>frmBrowserNF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCDFeImportacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCDFeImportacao.Designer.cs">
+      <DependentUpon>frmCDFeImportacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmIMA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIMA.Designer.cs">
+      <DependentUpon>frmIMA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDTR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDTR.Designer.cs">
+      <DependentUpon>frmDTR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModeloMTRe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModeloMTRe.Designer.cs">
+      <DependentUpon>frmModeloMTRe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModeloMTReResiduosInserir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModeloMTReResiduosInserir.Designer.cs">
+      <DependentUpon>frmModeloMTReResiduosInserir.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMovimentacaoDTR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMovimentacaoDTR.Designer.cs">
+      <DependentUpon>frmMovimentacaoDTR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmIMA2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIMA2.Designer.cs">
+      <DependentUpon>frmIMA2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPesquisaModeloMTRe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPesquisaModeloMTRe.Designer.cs">
+      <DependentUpon>frmPesquisaModeloMTRe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVisualPrintEstoque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVisualPrintEstoque.Designer.cs">
+      <DependentUpon>frmVisualPrintEstoque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVisualPrintMTR .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVisualPrintMTR .Designer.cs">
+      <DependentUpon>frmVisualPrintMTR .cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVisualPrintDTR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVisualPrintDTR.Designer.cs">
+      <DependentUpon>frmVisualPrintDTR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReplicarLancamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReplicarLancamentos.Designer.cs">
+      <DependentUpon>frmReplicarLancamentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDocumentacaoAplicavel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDocumentacaoAplicavel.Designer.cs">
+      <DependentUpon>frmDocumentacaoAplicavel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmFaturaPDF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFaturaPDF.Designer.cs">
+      <DependentUpon>frmFaturaPDF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmImportacaoMunicipios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmImportacaoMunicipios.Designer.cs">
+      <DependentUpon>frmImportacaoMunicipios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDistribuicaoDescargaPendente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDistribuicaoDescargaPendente.Designer.cs">
+      <DependentUpon>frmDistribuicaoDescargaPendente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMaisNFs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMaisNFs.Designer.cs">
+      <DependentUpon>frmMaisNFs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAntecipacao .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAntecipacao .Designer.cs">
+      <DependentUpon>frmAntecipacao .cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMTReGecko45.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMTReGecko45.Designer.cs">
+      <DependentUpon>frmMTReGecko45.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDestinoFinal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDestinoFinal.Designer.cs">
+      <DependentUpon>frmDestinoFinal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConfirmaTroca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConfirmaTroca.Designer.cs">
+      <DependentUpon>frmConfirmaTroca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLocalDTR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLocalDTR.Designer.cs">
+      <DependentUpon>frmLocalDTR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLocacaoProgramacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLocacaoProgramacao.Designer.cs">
+      <DependentUpon>frmLocacaoProgramacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRecibo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRecibo.Designer.cs">
+      <DependentUpon>frmRecibo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSolicitante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSolicitante.Designer.cs">
+      <DependentUpon>frmSolicitante.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPermissao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPermissao.Designer.cs">
+      <DependentUpon>frmPermissao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRelatorioIndicadores .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRelatorioIndicadores .Designer.cs">
+      <DependentUpon>frmRelatorioIndicadores .cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRelatorioParaFaturamentoComResiduos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRelatorioParaFaturamentoComResiduos.Designer.cs">
+      <DependentUpon>frmRelatorioParaFaturamentoComResiduos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmServicoExecutar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmServicoExecutar.Designer.cs">
+      <DependentUpon>frmServicoExecutar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReprogramacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReprogramacao.Designer.cs">
+      <DependentUpon>frmReprogramacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRelatorioMTReConferenciaDiaria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRelatorioMTReConferenciaDiaria.Designer.cs">
+      <DependentUpon>frmRelatorioMTReConferenciaDiaria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSistemaFatma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSistemaFatma.Designer.cs">
+      <DependentUpon>frmSistemaFatma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="INTEIRO2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="INTEIRO2.Designer.cs">
+      <DependentUpon>INTEIRO2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="INTEIRO3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="INTEIRO3.Designer.cs">
+      <DependentUpon>INTEIRO3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLocacaoMTR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLocacaoMTR.Designer.cs">
+      <DependentUpon>frmLocacaoMTR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRotaMapa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRotaMapa.Designer.cs">
+      <DependentUpon>frmRotaMapa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaReprogramacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaReprogramacao.Designer.cs">
+      <DependentUpon>frmListaReprogramacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmObservacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmObservacao.Designer.cs">
+      <DependentUpon>frmObservacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FUNCIONARIO.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FUNCIONARIO.Designer.cs">
+      <DependentUpon>FUNCIONARIO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="INTEIRO.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="INTEIRO.Designer.cs">
+      <DependentUpon>INTEIRO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MOEDA4.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MOEDA4.Designer.cs">
+      <DependentUpon>MOEDA4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MOEDA.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MOEDA.Designer.cs">
+      <DependentUpon>MOEDA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="printForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="printForm1.Designer.cs">
+      <DependentUpon>printForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RESIDUO.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RESIDUO.Designer.cs">
+      <DependentUpon>RESIDUO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInsertProgramacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInsertProgramacao.Designer.cs">
+      <DependentUpon>frmInsertProgramacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProcura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProcura.Designer.cs">
+      <DependentUpon>frmProcura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmContratoDados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmContratoDados.Designer.cs">
+      <DependentUpon>frmContratoDados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmServicosRealizados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmServicosRealizados.Designer.cs">
+      <DependentUpon>frmServicosRealizados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmClienteDados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmClienteDados.Designer.cs">
+      <DependentUpon>frmClienteDados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRelatorioProgramados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRelatorioProgramados.Designer.cs">
+      <DependentUpon>frmRelatorioProgramados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInicio.Designer.cs">
+      <DependentUpon>frmInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLocacoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLocacoes.Designer.cs">
+      <DependentUpon>frmLocacoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenu.Designer.cs">
+      <DependentUpon>frmMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNotasFiscais.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNotasFiscais.Designer.cs">
+      <DependentUpon>frmNotasFiscais.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProgramacaoDiaria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProgramacaoDiaria.Designer.cs">
+      <DependentUpon>frmProgramacaoDiaria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRelatorioExecutados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRelatorioExecutados.Designer.cs">
+      <DependentUpon>frmRelatorioExecutados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="teste.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="teste.Designer.cs">
+      <DependentUpon>teste.cs</DependentUpon>
+    </Compile>
+    <Content Include="Firefox\AccessibleMarshal.dll" />
+    <Content Include="Firefox\breakpadinjector.dll" />
+    <Content Include="Firefox\d3dcompiler_47.dll" />
+    <Content Include="Firefox\freebl3.dll" />
+    <Content Include="Firefox\icudt58.dll" />
+    <Content Include="Firefox\icuin58.dll" />
+    <Content Include="Firefox\icuuc58.dll" />
+    <Content Include="Firefox\lgpllibs.dll" />
+    <Content Include="Firefox\libEGL.dll" />
+    <Content Include="Firefox\libGLESv2.dll" />
+    <Content Include="Firefox\mozglue.dll" />
+    <Content Include="Firefox\nss3.dll" />
+    <Content Include="Firefox\nssckbi.dll" />
+    <Content Include="Firefox\nssdbm3.dll" />
+    <Content Include="Firefox\plugin-container.exe" />
+    <Content Include="Firefox\plugin-hang-ui.exe" />
+    <Content Include="Firefox\sandboxbroker.dll" />
+    <Content Include="Firefox\softokn3.dll" />
+    <Content Include="Firefox\xul.dll" />
+    <EmbeddedResource Include="DESTINOFINAL.resx">
+      <DependentUpon>DESTINOFINAL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CLIENTE.resx">
+      <DependentUpon>CLIENTE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CAMINHAO.resx">
+      <DependentUpon>CAMINHAO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChaves.resx">
+      <DependentUpon>frmChaves.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMTReLancar.resx">
+      <DependentUpon>frmMTReLancar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAtualizacaoDados.resx">
+      <DependentUpon>frmAtualizacaoDados.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBrowserMTRe_Consulta.resx">
+      <DependentUpon>frmBrowserMTRe_Consulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBrowserMTRe .resx">
+      <DependentUpon>frmBrowserMTRe .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBrowserIMA.resx">
+      <DependentUpon>frmBrowserIMA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBrowserNF.resx">
+      <DependentUpon>frmBrowserNF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCDFeImportacao.resx">
+      <DependentUpon>frmCDFeImportacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIMA.resx">
+      <DependentUpon>frmIMA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDTR.resx">
+      <DependentUpon>frmDTR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModeloMTRe.resx">
+      <DependentUpon>frmModeloMTRe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModeloMTReResiduosInserir.resx">
+      <DependentUpon>frmModeloMTReResiduosInserir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMovimentacaoDTR.resx">
+      <DependentUpon>frmMovimentacaoDTR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIMA2.resx">
+      <DependentUpon>frmIMA2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPesquisaModeloMTRe.resx">
+      <DependentUpon>frmPesquisaModeloMTRe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVisualPrintEstoque.resx">
+      <DependentUpon>frmVisualPrintEstoque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVisualPrintMTR .resx">
+      <DependentUpon>frmVisualPrintMTR .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVisualPrintDTR.resx">
+      <DependentUpon>frmVisualPrintDTR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReplicarLancamentos.resx">
+      <DependentUpon>frmReplicarLancamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDocumentacaoAplicavel.resx">
+      <DependentUpon>frmDocumentacaoAplicavel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFaturaPDF.resx">
+      <DependentUpon>frmFaturaPDF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmImportacaoMunicipios.resx">
+      <DependentUpon>frmImportacaoMunicipios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDistribuicaoDescargaPendente.resx">
+      <DependentUpon>frmDistribuicaoDescargaPendente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMaisNFs.resx">
+      <DependentUpon>frmMaisNFs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAntecipacao .resx">
+      <DependentUpon>frmAntecipacao .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMTReGecko45.resx">
+      <DependentUpon>frmMTReGecko45.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDestinoFinal.resx">
+      <DependentUpon>frmDestinoFinal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConfirmaTroca.resx">
+      <DependentUpon>frmConfirmaTroca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLocalDTR.resx">
+      <DependentUpon>frmLocalDTR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLocacaoProgramacao.resx">
+      <DependentUpon>frmLocacaoProgramacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRecibo.resx">
+      <DependentUpon>frmRecibo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSolicitante.resx">
+      <DependentUpon>frmSolicitante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPermissao.resx">
+      <DependentUpon>frmPermissao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRelatorioIndicadores .resx">
+      <DependentUpon>frmRelatorioIndicadores .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRelatorioParaFaturamentoComResiduos.resx">
+      <DependentUpon>frmRelatorioParaFaturamentoComResiduos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmServicoExecutar.resx">
+      <DependentUpon>frmServicoExecutar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReprogramacao.resx">
+      <DependentUpon>frmReprogramacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRelatorioMTReConferenciaDiaria.resx">
+      <DependentUpon>frmRelatorioMTReConferenciaDiaria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSistemaFatma.resx">
+      <DependentUpon>frmSistemaFatma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="INTEIRO2.resx">
+      <DependentUpon>INTEIRO2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="INTEIRO3.resx">
+      <DependentUpon>INTEIRO3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLocacaoMTR.resx">
+      <DependentUpon>frmLocacaoMTR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRotaMapa.resx">
+      <DependentUpon>frmRotaMapa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaReprogramacao.resx">
+      <DependentUpon>frmListaReprogramacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmObservacao.resx">
+      <DependentUpon>frmObservacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FUNCIONARIO.resx">
+      <DependentUpon>FUNCIONARIO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="INTEIRO.resx">
+      <DependentUpon>INTEIRO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MOEDA4.resx">
+      <DependentUpon>MOEDA4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MOEDA.resx">
+      <DependentUpon>MOEDA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RESIDUO.resx">
+      <DependentUpon>RESIDUO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInsertProgramacao.resx">
+      <DependentUpon>frmInsertProgramacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProcura.resx">
+      <DependentUpon>frmProcura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmContratoDados.resx">
+      <DependentUpon>frmContratoDados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmServicosRealizados.resx">
+      <DependentUpon>frmServicosRealizados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmClienteDados.resx">
+      <DependentUpon>frmClienteDados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRelatorioProgramados.resx">
+      <DependentUpon>frmRelatorioProgramados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInicio.resx">
+      <DependentUpon>frmInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLocacoes.resx">
+      <DependentUpon>frmLocacoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenu.resx">
+      <DependentUpon>frmMenu.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNotasFiscais.resx">
+      <DependentUpon>frmNotasFiscais.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProgramacaoDiaria.resx">
+      <DependentUpon>frmProgramacaoDiaria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRelatorioExecutados.resx">
+      <DependentUpon>frmRelatorioExecutados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="teste.resx">
+      <DependentUpon>teste.cs</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="App.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Firefox\omni.ja" />
+    <None Include="formSILC_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ConfigurationSilc\ConfigurationSilc.csproj">
+      <Project>{4abbb7e8-7343-4b16-8be8-1c22231b655a}</Project>
+      <Name>ConfigurationSilc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LibSILC\LibSILC.csproj">
+      <Project>{6cb173db-e8a4-4402-b7e9-2538133a5c2c}</Project>
+      <Name>LibSILC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mediologobrooks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mediologobrooks1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logobrooks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NEW.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\MTRe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Geckofx45.45.0.34\build\Geckofx45.targets" Condition="Exists('..\packages\Geckofx45.45.0.34\build\Geckofx45.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Geckofx45.45.0.34\build\Geckofx45.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Geckofx45.45.0.34\build\Geckofx45.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,2124 @@
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{843D3434-543D-4B05-A68F-14F261CCBB0A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SILC.Web</RootNamespace>
+    <AssemblyName>SILC.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44311</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.3.1.7705, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery, Version=1.7.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.1.7.1\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery.UI.Combined, Version=1.8.20.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.UI.Combined.1.8.20\lib\net45\AspNet.ScriptManager.jQuery.UI.Combined.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.3.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="dotless.AspNet, Version=1.6.7.0, Culture=neutral, PublicKeyToken=96b446c9e63eae34, processorArchitecture=MSIL">
+      <HintPath>..\packages\dotless.AspNetHandler.1.6.7\lib\net461\dotless.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="dotless.Core, Version=1.6.7.0, Culture=neutral, PublicKeyToken=96b446c9e63eae34, processorArchitecture=MSIL">
+      <HintPath>..\packages\dotless.Core.1.6.7\lib\net47\dotless.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.AspNet, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.AspNet.4.0.3.12163\lib\net40-full\DotNetOpenAuth.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.0.3.12163\lib\net40-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.0.3.12163\lib\net40-full\DotNetOpenAuth.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.4.0.3.12163\lib\net40-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.0.3.12163\lib\net40-full\DotNetOpenAuth.OpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.0.3.12163\lib\net40-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.27.2.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.27.2\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.3.8.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.3.8\lib\net462\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.3.8.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.3.8\lib\net462\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.8.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.8\lib\net462\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="MathNet.Numerics, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MathNet.Numerics.5.0.0\lib\net461\MathNet.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Membership.OpenAuth, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Membership.OpenAuth.1.0.0\lib\net45\Microsoft.AspNet.Membership.OpenAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.WebForms.1.0.0\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Contracts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=736440c9b414ea16, processorArchitecture=MSIL">
+      <HintPath>..\packages\CodeContracts.Unofficial.1.0.0.0\lib\Net35\Microsoft.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.6.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.6.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.6.0.0\lib\net461\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\lib\net461\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.6.0.0\lib\net461\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.6.0.0\lib\net461\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.MSAjax, Version=4.5.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.MSAjax.4.5.6\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.WebForms, Version=4.5.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.WebForms.4.5.6\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=9.0.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.9.0.0\lib\net462\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp, Version=6.1.1.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.6.1.1\lib\netstandard2.0\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting, Version=6.1.1.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.6.1.1\lib\netstandard2.0\PdfSharp.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Quality, Version=6.1.1.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.6.1.1\lib\netstandard2.0\PdfSharp.Quality.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Snippets, Version=6.1.1.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.6.1.1\lib\netstandard2.0\PdfSharp.Snippets.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.System, Version=6.1.1.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.6.1.1\lib\netstandard2.0\PdfSharp.System.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.WPFonts, Version=6.1.1.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.6.1.1\lib\netstandard2.0\PdfSharp.WPFonts.dll</HintPath>
+    </Reference>
+    <Reference Include="Security.Cryptography, Version=1.7.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Security.Cryptography.1.7.2\lib\net35\Security.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration.ConfigurationManager, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.8.0.0\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.8.0.1\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.5.0.2\lib\net461\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Optimization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.1\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="ZstdSharp, Version=0.8.0.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZstdSharp.Port.0.8.0\lib\net462\ZstdSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\aspnet-WebSite1%281%29-20170424142203.mdf" />
+    <Content Include="App_Data\aspnet-WebSite1%281%29-20170424142203_log.ldf">
+      <DependentUpon>aspnet-WebSite1%281%29-20170424142203.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\PublishProfiles\FolderProfile.pubxml.user" />
+    <Content Include="Barras.aspx" />
+    <Content Include="bin\Antlr3.Runtime.dll" />
+    <Content Include="bin\Antlr3.Runtime.pdb" />
+    <Content Include="bin\AspNet.ScriptManager.jQuery.dll" />
+    <Content Include="bin\AspNet.ScriptManager.jQuery.UI.Combined.dll" />
+    <Content Include="bin\BouncyCastle.Cryptography.dll" />
+    <Content Include="bin\ConfigurationSilc.dll" />
+    <Content Include="bin\ConfigurationSilc.pdb" />
+    <Content Include="bin\de\pdfsharp.charting.resources.dll" />
+    <Content Include="bin\de\pdfsharp.resources.dll" />
+    <Content Include="bin\dotless.AspNet.dll" />
+    <Content Include="bin\dotless.Core.dll" />
+    <Content Include="bin\DotNetOpenAuth.AspNet.dll" />
+    <Content Include="bin\DotNetOpenAuth.AspNet.xml" />
+    <Content Include="bin\DotNetOpenAuth.Core.dll" />
+    <Content Include="bin\DotNetOpenAuth.Core.xml" />
+    <Content Include="bin\DotNetOpenAuth.OAuth.Consumer.dll" />
+    <Content Include="bin\DotNetOpenAuth.OAuth.Consumer.xml" />
+    <Content Include="bin\DotNetOpenAuth.OAuth.dll" />
+    <Content Include="bin\DotNetOpenAuth.OAuth.xml" />
+    <Content Include="bin\DotNetOpenAuth.OpenId.dll" />
+    <Content Include="bin\DotNetOpenAuth.OpenId.RelyingParty.dll" />
+    <Content Include="bin\DotNetOpenAuth.OpenId.RelyingParty.xml" />
+    <Content Include="bin\DotNetOpenAuth.OpenId.xml" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\entityframework.xml" />
+    <Content Include="bin\Google.Protobuf.dll" />
+    <Content Include="bin\itextsharp.dll" />
+    <Content Include="bin\itextsharp.xml" />
+    <Content Include="bin\K4os.Compression.LZ4.dll" />
+    <Content Include="bin\K4os.Compression.LZ4.Streams.dll" />
+    <Content Include="bin\K4os.Hash.xxHash.dll" />
+    <Content Include="bin\LibSILC.dll" />
+    <Content Include="bin\LibSILC.pdb" />
+    <Content Include="bin\Microsoft.AspNet.Membership.OpenAuth.dll" />
+    <Content Include="bin\Microsoft.AspNet.Web.Optimization.WebForms.dll" />
+    <Content Include="bin\Microsoft.Bcl.AsyncInterfaces.dll" />
+    <Content Include="bin\Microsoft.Extensions.Configuration.Abstractions.dll" />
+    <Content Include="bin\Microsoft.Extensions.Configuration.Binder.dll" />
+    <Content Include="bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+    <Content Include="bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml" />
+    <Content Include="bin\Microsoft.Extensions.DependencyInjection.dll" />
+    <Content Include="bin\Microsoft.Extensions.DependencyInjection.xml" />
+    <Content Include="bin\Microsoft.Extensions.Primitives.dll" />
+    <Content Include="bin\Microsoft.ScriptManager.MSAjax.dll" />
+    <Content Include="bin\Microsoft.ScriptManager.WebForms.dll" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\Mono.Math.dll" />
+    <Content Include="bin\Mono.Math.xml" />
+    <Content Include="bin\MySql.Data.dll" />
+    <Content Include="bin\MySql.Data.xml" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Newtonsoft.Json.xml" />
+    <Content Include="bin\Org.Mentalis.Security.Cryptography.dll" />
+    <Content Include="bin\Org.Mentalis.Security.Cryptography.xml" />
+    <Content Include="bin\PdfSharp.Charting.dll" />
+    <Content Include="bin\pdfsharp.charting.xml" />
+    <Content Include="bin\PdfSharp.dll" />
+    <Content Include="bin\pdfsharp.xml" />
+    <Content Include="bin\System.Buffers.dll" />
+    <Content Include="bin\System.Configuration.ConfigurationManager.dll" />
+    <Content Include="bin\System.Configuration.ConfigurationManager.xml" />
+    <Content Include="bin\System.Diagnostics.DiagnosticSource.dll" />
+    <Content Include="bin\System.IO.Pipelines.dll" />
+    <Content Include="bin\System.Memory.dll" />
+    <Content Include="bin\System.Numerics.Vectors.dll" />
+    <Content Include="bin\System.Runtime.CompilerServices.Unsafe.dll" />
+    <Content Include="bin\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="bin\System.ValueTuple.dll" />
+    <Content Include="bin\System.Web.Optimization.dll" />
+    <Content Include="bin\System.Web.Optimization.Less.dll" />
+    <Content Include="bin\System.Web.Optimization.Less.xml" />
+    <Content Include="bin\System.Web.Optimization.xml" />
+    <Content Include="bin\System.Web.Providers.dll" />
+    <Content Include="bin\WebGrease.dll" />
+    <Content Include="bin\ZstdSharp.dll" />
+    <Content Include="cabecalho.aspx" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\themes\brooks.css" />
+    <Content Include="Content\themes\main.css" />
+    <Content Include="Content\themes\style.css" />
+    <Content Include="default.aspx" />
+    <Content Include="ewvs_default.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="forms\About.aspx" />
+    <Content Include="forms\aspx.css" />
+    <Content Include="forms\Balanca.aspx" />
+    <Content Include="forms\BlocosMTR.aspx" />
+    <Content Include="forms\BloqueioFinanceiro.aspx" />
+    <Content Include="forms\brooks\arquivos.aspx" />
+    <Content Include="forms\brooks\assessoria.aspx" />
+    <Content Include="forms\brooks\assessoria2.jpg" />
+    <Content Include="forms\brooks\assessoriafundo.jpg" />
+    <Content Include="forms\brooks\assessoriafundo2.jpg" />
+    <Content Include="forms\brooks\assessoriared.jpg" />
+    <Content Include="forms\brooks\assessoriared2.jpg" />
+    <Content Include="forms\brooks\bg_form_client.png" />
+    <Content Include="forms\brooks\brooks.css" />
+    <Content Include="forms\brooks\brooksambiental.aspx" />
+    <Content Include="forms\brooks\brooksambiental.jpg" />
+    <Content Include="forms\brooks\cliente.jpg" />
+    <Content Include="forms\brooks\coletaresiduos.aspx" />
+    <Content Include="forms\brooks\coletaresiduos2.jpg" />
+    <Content Include="forms\brooks\coletaresiduosfundo.jpg" />
+    <Content Include="forms\brooks\coletaresiduosred.jpg" />
+    <Content Include="forms\brooks\coletaseletiva.aspx" />
+    <Content Include="forms\brooks\coletaseletiva.jpg" />
+    <Content Include="forms\brooks\coletaseletiva2.jpg" />
+    <Content Include="forms\brooks\coletaseletivared.jpg" />
+    <Content Include="forms\brooks\contato.aspx" />
+    <Content Include="forms\brooks\contato.jpg" />
+    <Content Include="forms\brooks\contato2.jpg" />
+    <Content Include="forms\brooks\contato3.jpg" />
+    <Content Include="forms\brooks\default.aspx" />
+    <Content Include="forms\brooks\destinacaofinal.aspx" />
+    <Content Include="forms\brooks\destinacaofinal2.jpg" />
+    <Content Include="forms\brooks\destinacaofinalfundo.jpg" />
+    <Content Include="forms\brooks\destinacaofinalred.jpg" />
+    <Content Include="forms\brooks\DTR.aspx" />
+    <Content Include="forms\brooks\DTR2.jpg" />
+    <Content Include="forms\brooks\dtrfundo.jpg" />
+    <Content Include="forms\brooks\DTRred.jpg" />
+    <Content Include="forms\brooks\enviar.jpg" />
+    <Content Include="forms\brooks\equipamentos.aspx" />
+    <Content Include="forms\brooks\equipamentos.jpg" />
+    <Content Include="forms\brooks\equipamentos2.jpg" />
+    <Content Include="forms\brooks\equipamentos3.jpg" />
+    <Content Include="forms\brooks\erro.png" />
+    <Content Include="forms\brooks\favicon.ico" />
+    <Content Include="forms\brooks\feature_list.png" />
+    <Content Include="forms\brooks\fundobrooks.jpg" />
+    <Content Include="forms\brooks\fundopastas.jpg" />
+    <Content Include="forms\brooks\gestaoglobal.aspx" />
+    <Content Include="forms\brooks\gestaoglobal2.jpg" />
+    <Content Include="forms\brooks\gestaoglobalfundo.jpg" />
+    <Content Include="forms\brooks\gestaoglobalred.jpg" />
+    <Content Include="forms\brooks\hidrojateamento.aspx" />
+    <Content Include="forms\brooks\hidrojateamento2.jpg" />
+    <Content Include="forms\brooks\hidrojateamentofundo.jpg" />
+    <Content Include="forms\brooks\hidrojateamentored.jpg" />
+    <Content Include="forms\brooks\home.jpg" />
+    <Content Include="forms\brooks\ima.aspx" />
+    <Content Include="forms\brooks\imagemvermelha.js" />
+    <Content Include="forms\brooks\instalacoes.jpg" />
+    <Content Include="forms\brooks\legislacao.aspx" />
+    <Content Include="forms\brooks\legislacao.jpg" />
+    <Content Include="forms\brooks\legislacao2.jpg" />
+    <Content Include="forms\brooks\login.aspx" />
+    <Content Include="forms\brooks\loginaplicativo.aspx" />
+    <Content Include="forms\brooks\logistica.aspx" />
+    <Content Include="forms\brooks\logisticafundo.jpg" />
+    <Content Include="forms\brooks\logisticareversa2.jpg" />
+    <Content Include="forms\brooks\logisticareversared.jpg" />
+    <Content Include="forms\brooks\menuservicos.jpg" />
+    <Content Include="forms\brooks\pastas.jpg" />
+    <Content Include="forms\brooks\perguntasfrequentes.aspx" />
+    <Content Include="forms\brooks\perguntasfrequentes.jpg" />
+    <Content Include="forms\brooks\perguntasfrequentes2.jpg" />
+    <Content Include="forms\brooks\RCD.aspx" />
+    <Content Include="forms\brooks\RCD2.jpg" />
+    <Content Include="forms\brooks\RCDfundo.jpg" />
+    <Content Include="forms\brooks\RCDred.jpg" />
+    <Content Include="forms\brooks\RSS.aspx" />
+    <Content Include="forms\brooks\RSS2.jpg" />
+    <Content Include="forms\brooks\RSSfundo.jpg" />
+    <Content Include="forms\brooks\RSSRed.jpg" />
+    <Content Include="forms\brooks\sede.jpg" />
+    <Content Include="forms\brooks\sedeassessoria.jpg" />
+    <Content Include="forms\brooks\sedebrooks.jpg" />
+    <Content Include="forms\brooks\sedecoletaresiduos.jpg" />
+    <Content Include="forms\brooks\sedecoletaseletiva.jpg" />
+    <Content Include="forms\brooks\sedecontato.jpg" />
+    <Content Include="forms\brooks\sededestinacaofinal.jpg" />
+    <Content Include="forms\brooks\sedeDTR.jpg" />
+    <Content Include="forms\brooks\sedefoto2.jpg" />
+    <Content Include="forms\brooks\sedefoto3.jpg" />
+    <Content Include="forms\brooks\sedegestaoglobal.jpg" />
+    <Content Include="forms\brooks\sedehidrojateamento.jpg" />
+    <Content Include="forms\brooks\sedelegislacao.jpg" />
+    <Content Include="forms\brooks\sedelogisticareversa.jpg" />
+    <Content Include="forms\brooks\sedeperguntasfrequentes.jpg" />
+    <Content Include="forms\brooks\sedeRCD.jpg" />
+    <Content Include="forms\brooks\sedeRSS.jpg" />
+    <Content Include="forms\brooks\sedeUSTE.jpg" />
+    <Content Include="forms\brooks\USTE.aspx" />
+    <Content Include="forms\brooks\USTE.jpg" />
+    <Content Include="forms\brooks\USTE2.jpg" />
+    <Content Include="forms\brooks\ustefundo.jpg" />
+    <Content Include="forms\brooks\USTEred.jpg" />
+    <Content Include="forms\brooks\voltar.png" />
+    <Content Include="forms\cabecalho.ascx" />
+    <Content Include="forms\CAMINHAO.ascx" />
+    <Content Include="forms\Caminhoes.aspx" />
+    <Content Include="forms\CDF.aspx" />
+    <Content Include="forms\CDFe_Importacao.aspx" />
+    <Content Include="forms\CLIENTE.ascx" />
+    <Content Include="forms\Clientes.aspx" />
+    <Content Include="forms\CLIENTESCONTROL.ascx" />
+    <Content Include="forms\ClientesHistorico.aspx" />
+    <Content Include="forms\Clientes_Incluir.aspx" />
+    <Content Include="forms\CodigosServicosPrefeitura.aspx" />
+    <Content Include="forms\ConfigSis.aspx" />
+    <Content Include="forms\Contact.aspx" />
+    <Content Include="forms\Containeres.aspx" />
+    <Content Include="forms\Contratos.aspx" />
+    <Content Include="forms\ContratosIE6.aspx" />
+    <Content Include="forms\Contratos_Alterar.aspx" />
+    <Content Include="forms\Contratos_Cadastro.aspx" />
+    <Content Include="forms\Contratos_Reajustes.aspx" />
+    <Content Include="forms\Contratos_Rescisao.aspx" />
+    <Content Include="forms\Contratos_Residuos.aspx" />
+    <Content Include="forms\ControleAterroSanitario.aspx" />
+    <Content Include="forms\css.css" />
+    <Content Include="forms\DATA.ascx" />
+    <Content Include="forms\DDR.aspx" />
+    <Content Include="forms\DDR_indisponivel.aspx" />
+    <Content Include="forms\DescricaoServicosNF.aspx" />
+    <Content Include="forms\DESTINOFINAL.ascx" />
+    <Content Include="forms\DestinoFinal.aspx" />
+    <Content Include="forms\DIA.ascx" />
+    <Content Include="forms\DocumentacaoAplicavel.aspx" />
+    <Content Include="forms\DocumentosPagina.aspx" />
+    <Content Include="forms\DTR.aspx" />
+    <Content Include="forms\DTRRelacaoResiduos.aspx" />
+    <Content Include="forms\DTR_Enviados.aspx" />
+    <Content Include="forms\DTR_Relatorio.aspx" />
+    <Content Include="forms\EmailsPadraoEnvio.aspx" />
+    <Content Include="forms\Entrar.aspx" />
+    <Content Include="forms\EscolherDB.aspx" />
+    <Content Include="forms\fastcompost\arquivos.aspx" />
+    <Content Include="forms\fastcompost\assessoria.aspx" />
+    <Content Include="forms\fastcompost\assessoria2.jpg" />
+    <Content Include="forms\fastcompost\assessoriafundo.jpg" />
+    <Content Include="forms\fastcompost\assessoriafundo2.jpg" />
+    <Content Include="forms\fastcompost\assessoriared.jpg" />
+    <Content Include="forms\fastcompost\assessoriared2.jpg" />
+    <Content Include="forms\fastcompost\bg_form_client.png" />
+    <Content Include="forms\fastcompost\brooks.css" />
+    <Content Include="forms\fastcompost\brooksambiental.aspx" />
+    <Content Include="forms\fastcompost\brooksambiental.jpg" />
+    <Content Include="forms\fastcompost\cliente.jpg" />
+    <Content Include="forms\fastcompost\coletaresiduos.aspx" />
+    <Content Include="forms\fastcompost\coletaresiduos2.jpg" />
+    <Content Include="forms\fastcompost\coletaresiduosfundo.jpg" />
+    <Content Include="forms\fastcompost\coletaresiduosred.jpg" />
+    <Content Include="forms\fastcompost\coletaseletiva.aspx" />
+    <Content Include="forms\fastcompost\coletaseletiva.jpg" />
+    <Content Include="forms\fastcompost\coletaseletiva2.jpg" />
+    <Content Include="forms\fastcompost\coletaseletivared.jpg" />
+    <Content Include="forms\fastcompost\contato.aspx" />
+    <Content Include="forms\fastcompost\contato.jpg" />
+    <Content Include="forms\fastcompost\contato2.jpg" />
+    <Content Include="forms\fastcompost\contato3.jpg" />
+    <Content Include="forms\fastcompost\default.aspx" />
+    <Content Include="forms\fastcompost\destinacaofinal.aspx" />
+    <Content Include="forms\fastcompost\destinacaofinal2.jpg" />
+    <Content Include="forms\fastcompost\destinacaofinalfundo.jpg" />
+    <Content Include="forms\fastcompost\destinacaofinalred.jpg" />
+    <Content Include="forms\fastcompost\DTR.aspx" />
+    <Content Include="forms\fastcompost\DTR2.jpg" />
+    <Content Include="forms\fastcompost\dtrfundo.jpg" />
+    <Content Include="forms\fastcompost\DTRred.jpg" />
+    <Content Include="forms\fastcompost\enviar.jpg" />
+    <Content Include="forms\fastcompost\equipamentos.aspx" />
+    <Content Include="forms\fastcompost\equipamentos.jpg" />
+    <Content Include="forms\fastcompost\equipamentos2.jpg" />
+    <Content Include="forms\fastcompost\equipamentos3.jpg" />
+    <Content Include="forms\fastcompost\erro.png" />
+    <Content Include="forms\fastcompost\favicon.ico" />
+    <Content Include="forms\fastcompost\feature_list.png" />
+    <Content Include="forms\fastcompost\fundo.jpg" />
+    <Content Include="forms\fastcompost\fundopastas.jpg" />
+    <Content Include="forms\fastcompost\gestaoglobal.aspx" />
+    <Content Include="forms\fastcompost\gestaoglobal2.jpg" />
+    <Content Include="forms\fastcompost\gestaoglobalfundo.jpg" />
+    <Content Include="forms\fastcompost\gestaoglobalred.jpg" />
+    <Content Include="forms\fastcompost\hidrojateamento.aspx" />
+    <Content Include="forms\fastcompost\hidrojateamento2.jpg" />
+    <Content Include="forms\fastcompost\hidrojateamentofundo.jpg" />
+    <Content Include="forms\fastcompost\hidrojateamentored.jpg" />
+    <Content Include="forms\fastcompost\home.jpg" />
+    <Content Include="forms\fastcompost\ima.aspx" />
+    <Content Include="forms\fastcompost\imagemvermelha.js" />
+    <Content Include="forms\fastcompost\instalacoes.jpg" />
+    <Content Include="forms\fastcompost\legislacao.aspx" />
+    <Content Include="forms\fastcompost\legislacao.jpg" />
+    <Content Include="forms\fastcompost\legislacao2.jpg" />
+    <Content Include="forms\fastcompost\login.aspx" />
+    <Content Include="forms\fastcompost\loginaplicativo.aspx" />
+    <Content Include="forms\fastcompost\logistica.aspx" />
+    <Content Include="forms\fastcompost\logisticafundo.jpg" />
+    <Content Include="forms\fastcompost\logisticareversa2.jpg" />
+    <Content Include="forms\fastcompost\logisticareversared.jpg" />
+    <Content Include="forms\fastcompost\Logo.bmp" />
+    <Content Include="forms\fastcompost\Logo.gif" />
+    <Content Include="forms\fastcompost\Logo.jpg" />
+    <Content Include="forms\fastcompost\logocabec.jpg" />
+    <Content Include="forms\fastcompost\logorodape.jpg" />
+    <Content Include="forms\fastcompost\menuservicos.jpg" />
+    <Content Include="forms\fastcompost\pastas.jpg" />
+    <Content Include="forms\fastcompost\perguntasfrequentes.aspx" />
+    <Content Include="forms\fastcompost\perguntasfrequentes.jpg" />
+    <Content Include="forms\fastcompost\perguntasfrequentes2.jpg" />
+    <Content Include="forms\fastcompost\RCD.aspx" />
+    <Content Include="forms\fastcompost\RCD2.jpg" />
+    <Content Include="forms\fastcompost\RCDfundo.jpg" />
+    <Content Include="forms\fastcompost\RCDred.jpg" />
+    <Content Include="forms\fastcompost\RSS.aspx" />
+    <Content Include="forms\fastcompost\RSS2.jpg" />
+    <Content Include="forms\fastcompost\RSSfundo.jpg" />
+    <Content Include="forms\fastcompost\RSSRed.jpg" />
+    <Content Include="forms\fastcompost\sede.jpg" />
+    <Content Include="forms\fastcompost\sedeassessoria.jpg" />
+    <Content Include="forms\fastcompost\sedebrooks.jpg" />
+    <Content Include="forms\fastcompost\sedecoletaresiduos.jpg" />
+    <Content Include="forms\fastcompost\sedecoletaseletiva.jpg" />
+    <Content Include="forms\fastcompost\sedecontato.jpg" />
+    <Content Include="forms\fastcompost\sededestinacaofinal.jpg" />
+    <Content Include="forms\fastcompost\sedeDTR.jpg" />
+    <Content Include="forms\fastcompost\sedefoto2.jpg" />
+    <Content Include="forms\fastcompost\sedefoto3.jpg" />
+    <Content Include="forms\fastcompost\sedegestaoglobal.jpg" />
+    <Content Include="forms\fastcompost\sedehidrojateamento.jpg" />
+    <Content Include="forms\fastcompost\sedelegislacao.jpg" />
+    <Content Include="forms\fastcompost\sedelogisticareversa.jpg" />
+    <Content Include="forms\fastcompost\sedeperguntasfrequentes.jpg" />
+    <Content Include="forms\fastcompost\sedeRCD.jpg" />
+    <Content Include="forms\fastcompost\sedeRSS.jpg" />
+    <Content Include="forms\fastcompost\sedeUSTE.jpg" />
+    <Content Include="forms\fastcompost\USTE.aspx" />
+    <Content Include="forms\fastcompost\USTE.jpg" />
+    <Content Include="forms\fastcompost\USTE2.jpg" />
+    <Content Include="forms\fastcompost\ustefundo.jpg" />
+    <Content Include="forms\fastcompost\USTEred.jpg" />
+    <Content Include="forms\fastcompost\voltar.png" />
+    <Content Include="forms\geral.js" />
+    <Content Include="forms\GRUPORESIDUO.ascx" />
+    <Content Include="forms\IBAMA.aspx" />
+    <Content Include="forms\INTEIRO.ascx" />
+    <Content Include="forms\INTEIRO2.ascx" />
+    <Content Include="forms\INTEIRO7.ascx" />
+    <Content Include="forms\INTEIROMES.ascx" />
+    <Content Include="forms\ItensMenuPermissoes.aspx" />
+    <Content Include="forms\JSFuncoes.js" />
+    <Content Include="forms\Lancamentos.aspx" />
+    <Content Include="forms\layout.aspx" />
+    <Content Include="forms\LiberarProgramacaoServicos.aspx" />
+    <Content Include="forms\LicencasAmbiental.aspx" />
+    <Content Include="forms\Manage.aspx" />
+    <Content Include="forms\menu.ascx" />
+    <Content Include="forms\menu.aspx" />
+    <Content Include="forms\MOEDA.ascx" />
+    <Content Include="forms\MOTORISTA.ascx" />
+    <Content Include="forms\Motoristas.aspx" />
+    <Content Include="forms\MovimentacaoDTR.aspx" />
+    <Content Include="forms\MTR.aspx" />
+    <Content Include="forms\MTRCanceladaTransbordo.aspx" />
+    <Content Include="forms\MTRsPendentes.aspx" />
+    <Content Include="forms\Municipios.aspx" />
+    <Content Include="forms\new 2.txt" />
+    <Content Include="forms\NotasFiscais.aspx" />
+    <Content Include="forms\OpenAuthProviders.ascx" />
+    <Content Include="forms\Parametros.aspx" />
+    <Content Include="forms\PesquisaCaminhoes.aspx" />
+    <Content Include="forms\PesquisaClientes.aspx" />
+    <Content Include="forms\PesquisaClientesIE6.aspx" />
+    <Content Include="forms\PesquisaDestinoFinal.aspx" />
+    <Content Include="forms\PesquisaGrupoResiduos.aspx" />
+    <Content Include="forms\PesquisaIBAMA.aspx" />
+    <Content Include="forms\PesquisaMotoristas.aspx" />
+    <Content Include="forms\PesquisaMunicipios.aspx" />
+    <Content Include="forms\PesquisaResiduos.aspx" />
+    <Content Include="forms\programacao.aspx" />
+    <Content Include="forms\programacaoInsercao.aspx" />
+    <Content Include="forms\Register.aspx" />
+    <Content Include="forms\RegisterExternalLogin.aspx" />
+    <Content Include="forms\RelacaoCDFe.txt" />
+    <Content Include="forms\RelatorioDestinoFinalConferencia.aspx" />
+    <Content Include="forms\Residuos.aspx" />
+    <Content Include="forms\RetencaoImpostosNF.aspx" />
+    <Content Include="forms\RGR.aspx" />
+    <Content Include="forms\RGR2.aspx" />
+    <Content Include="forms\sempermissao.aspx" />
+    <Content Include="forms\SenhaIPM.aspx" />
+    <Content Include="forms\ServicosDesenvolvedor.aspx" />
+    <Content Include="forms\table.css" />
+    <Content Include="forms\testes.aspx" />
+    <Content Include="forms\TicketsPendentes.aspx" />
+    <Content Include="forms\TipoAcondicionamento.aspx" />
+    <Content Include="forms\uploadRGRCDFDDR.aspx" />
+    <Content Include="forms\Usuarios.aspx" />
+    <Content Include="forms\WebForm1.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="imagemvermelha.js" />
+    <Content Include="Images\accent.png" />
+    <Content Include="Images\acessar.jpg" />
+    <Content Include="Images\aguarde.gif" />
+    <Content Include="Images\asc.png" />
+    <Content Include="Images\assinatura sergio.jpg" />
+    <Content Include="Images\backareacliente.jpg" />
+    <Content Include="Images\baixar.jpg" />
+    <Content Include="Images\botaoprocura.jpg" />
+    <Content Include="Images\bullet.png" />
+    <Content Include="Images\cabec1brooks.jpg" />
+    <Content Include="Images\cabecbrooks.jpg" />
+    <Content Include="Images\cabeccor.jpg" />
+    <Content Include="Images\confirma.png" />
+    <Content Include="Images\desc.png" />
+    <Content Include="Images\edit.png" />
+    <Content Include="Images\editar.png" />
+    <Content Include="Images\etapas.png" />
+    <Content Include="Images\ewvs.png" />
+    <Content Include="Images\excel.jpg" />
+    <Content Include="Images\excel2003.jpg" />
+    <Content Include="Images\excel2010.png" />
+    <Content Include="Images\excluir.png" />
+    <Content Include="Images\excluir2.png" />
+    <Content Include="Images\fechar.jpg" />
+    <Content Include="Images\first.jpg" />
+    <Content Include="Images\heroAccent.png" />
+    <Content Include="Images\impressora.png" />
+    <Content Include="Images\logoBeimar.png" />
+    <Content Include="Images\logobrooks.png" />
+    <Content Include="Images\logoCostao.png" />
+    <Content Include="Images\logoFloripa.png" />
+    <Content Include="Images\logoIFashion.png" />
+    <Content Include="Images\logoIntech.png" />
+    <Content Include="Images\logoItaguacu.png" />
+    <Content Include="Images\logoPortobello.png" />
+    <Content Include="Images\logoSCPar.png" />
+    <Content Include="Images\logoSquare.png" />
+    <Content Include="Images\logotipobrooks.jpg" />
+    <Content Include="Images\logotipoMTR.png" />
+    <Content Include="Images\logoViaCatarina.png" />
+    <Content Include="Images\logoVotorantim.png" />
+    <Content Include="Images\mediologobrooks.png" />
+    <Content Include="Images\micrologobrooks.png" />
+    <Content Include="Images\mostrarsmall.png" />
+    <Content Include="Images\mudar.png" />
+    <Content Include="Images\mudarmostrar.png" />
+    <Content Include="Images\mudarmostrar2.png" />
+    <Content Include="Images\orderedList0.png" />
+    <Content Include="Images\orderedList1.png" />
+    <Content Include="Images\orderedList2.png" />
+    <Content Include="Images\orderedList3.png" />
+    <Content Include="Images\orderedList4.png" />
+    <Content Include="Images\orderedList5.png" />
+    <Content Include="Images\orderedList6.png" />
+    <Content Include="Images\orderedList7.png" />
+    <Content Include="Images\orderedList8.png" />
+    <Content Include="Images\orderedList9.png" />
+    <Content Include="Images\procura.png" />
+    <Content Include="Images\procura0.png" />
+    <Content Include="Images\procura2.png" />
+    <Content Include="Images\rodapebrooks.jpg" />
+    <Content Include="Images\salvar.png" />
+    <Content Include="Images\salvarcinza.png" />
+    <Content Include="Images\selecionado.png" />
+    <Content Include="Images\selecionar.png" />
+    <Content Include="Images\usuario.gif" />
+    <Content Include="Images\viamar.JPG" />
+    <Content Include="Images\voltar.png" />
+    <Content Include="mtre.aspx" />
+    <Content Include="pesquisasatisfacao.aspx" />
+    <Content Include="Relatorios\Imprimir.aspx" />
+    <Content Include="Relatorios\PreviewRelatorioContaineres.aspx" />
+    <Compile Include="Relatorios\PreviewRelatorioContaineres.aspx.designer.cs">
+      <DependentUpon>PreviewRelatorioContaineres.aspx</DependentUpon>
+    </Compile>
+    <Content Include="Relatorios\RelatorioConferenciaDiaria.aspx" />
+    <Content Include="Relatorios\RelatorioConferenciaDiariaPorCliente.aspx" />
+    <Content Include="Relatorios\RelatorioConferenciaDiariaPorPeriodo.aspx" />
+    <Content Include="Relatorios\RelatorioContaineres.aspx" />
+    <Content Include="Relatorios\RelatorioControleAterro.aspx" />
+    <Content Include="Relatorios\RelatorioDeClientesAReajustar.aspx" />
+    <Content Include="Relatorios\RelatorioDeClientesBloqueados.aspx" />
+    <Content Include="Relatorios\RelatorioDeLogs.aspx" />
+    <Content Include="Relatorios\RelatorioGerencial.aspx" />
+    <Content Include="Relatorios\RelatorioMovimentacaoDestinoFinal.aspx" />
+    <Content Include="Relatorios\RelatorioMovimentacaoPorDestinoFinalComResiduosEmDTR.aspx" />
+    <Content Include="Relatorios\RelatorioMovimentacaoResiduosPorDestinoFinal.aspx" />
+    <Content Include="Relatorios\RelatorioMovimentacaoResiduosPorDestinoFinalComValores.aspx" />
+    <Content Include="Relatorios\RelatorioMovimentacaoResiduosPorDestinoFinalDivergentes.aspx" />
+    <Content Include="Relatorios\RelatorioNotasFiscaisImpostos.aspx" />
+    <Content Include="Relatorios\RelatorioParaFaturamentoComResiduos.aspx" />
+    <Content Include="Relatorios\RelatorioParaFaturamentoParaCliente.aspx" />
+    <Content Include="Relatorios\RelatorioReciclaveis.aspx" />
+    <Content Include="Relatorios\RelatorioReciclaveisPorDestinoFinal.aspx" />
+    <Content Include="Relatorios\RelatorioResiduos.aspx" />
+    <Content Include="Relatorios\Relatorios_Querys.aspx" />
+    <Compile Include="Relatorios\Relatorios_Querys.aspx.designer.cs">
+      <DependentUpon>Relatorios_Querys.aspx</DependentUpon>
+    </Compile>
+    <Content Include="Relatorios\RelatorioTotalResiduos.aspx" />
+    <Content Include="Relatorios\RelatorioVendasPorRepresentantePorPeriodo.aspx" />
+    <Compile Include="Relatorios\RelatorioVendasPorRepresentantePorPeriodo.aspx.designer.cs">
+      <DependentUpon>RelatorioVendasPorRepresentantePorPeriodo.aspx</DependentUpon>
+    </Compile>
+    <Content Include="Scripts\funcaoGeral.js" />
+    <None Include="packages.config" />
+    <None Include="Scripts\_references.js" />
+    <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Scripts\jquery-1.7.1.js" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.min.js" />
+    <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\WebForms\DetailsView.js" />
+    <Content Include="Scripts\WebForms\Focus.js" />
+    <Content Include="Scripts\WebForms\GridView.js" />
+    <Content Include="Scripts\WebForms\Menu.js" />
+    <Content Include="Scripts\WebForms\MenuStandards.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="Scripts\WebForms\SmartNav.js" />
+    <Content Include="Scripts\WebForms\TreeView.js" />
+    <Content Include="Scripts\WebForms\WebForms.js" />
+    <Content Include="Scripts\WebForms\WebParts.js" />
+    <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="UploadedImages\alfa.jpg" />
+    <Content Include="Web.config" />
+    <Compile Include="cabecalho.aspx.designer.cs">
+      <DependentUpon>cabecalho.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\cabecalho.ascx.designer.cs">
+      <DependentUpon>cabecalho.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\CAMINHAO.ascx.designer.cs">
+      <DependentUpon>CAMINHAO.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\CLIENTE.ascx.designer.cs">
+      <DependentUpon>CLIENTE.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\CLIENTESCONTROL.ascx.designer.cs">
+      <DependentUpon>CLIENTESCONTROL.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Clientes_Incluir.aspx.designer.cs">
+      <DependentUpon>Clientes_Incluir.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Containeres.aspx.designer.cs">
+      <DependentUpon>Containeres.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Contratos.aspx.designer.cs">
+      <DependentUpon>Contratos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\ContratosIE6.aspx.designer.cs">
+      <DependentUpon>ContratosIE6.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Contratos_Cadastro.aspx.designer.cs">
+      <DependentUpon>Contratos_Cadastro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Contratos_Rescisao.aspx.designer.cs">
+      <DependentUpon>Contratos_Rescisao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\ControleAterroSanitario.aspx.designer.cs">
+      <DependentUpon>ControleAterroSanitario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\DATA.ascx.designer.cs">
+      <DependentUpon>DATA.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\DDR.aspx.designer.cs">
+      <DependentUpon>DDR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\DDR_indisponivel.aspx.designer.cs">
+      <DependentUpon>DDR_indisponivel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\DescricaoServicosNF.aspx.designer.cs">
+      <DependentUpon>DescricaoServicosNF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\DESTINOFINAL.ascx.designer.cs">
+      <DependentUpon>DESTINOFINAL.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\DIA.ascx.designer.cs">
+      <DependentUpon>DIA.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\DocumentacaoAplicavel.aspx.designer.cs">
+      <DependentUpon>DocumentacaoAplicavel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\DocumentosPagina.aspx.designer.cs">
+      <DependentUpon>DocumentosPagina.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\DTR.aspx.designer.cs">
+      <DependentUpon>DTR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\DTRRelacaoResiduos.aspx.designer.cs">
+      <DependentUpon>DTRRelacaoResiduos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\DTR_Enviados.aspx.designer.cs">
+      <DependentUpon>DTR_Enviados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\DTR_Relatorio.aspx.designer.cs">
+      <DependentUpon>DTR_Relatorio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\EmailsPadraoEnvio.aspx.designer.cs">
+      <DependentUpon>EmailsPadraoEnvio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\EscolherDB.aspx.designer.cs">
+      <DependentUpon>EscolherDB.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\GRUPORESIDUO.ascx.designer.cs">
+      <DependentUpon>GRUPORESIDUO.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\IBAMA.aspx.designer.cs">
+      <DependentUpon>IBAMA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\INTEIRO.ascx.designer.cs">
+      <DependentUpon>INTEIRO.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\INTEIRO2.ascx.designer.cs">
+      <DependentUpon>INTEIRO2.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\INTEIRO7.ascx.designer.cs">
+      <DependentUpon>INTEIRO7.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\INTEIROMES.ascx.designer.cs">
+      <DependentUpon>INTEIROMES.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Lancamentos.aspx.designer.cs">
+      <DependentUpon>Lancamentos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\layout.aspx.designer.cs">
+      <DependentUpon>layout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\LiberarProgramacaoServicos.aspx.designer.cs">
+      <DependentUpon>LiberarProgramacaoServicos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\menu.ascx.designer.cs">
+      <DependentUpon>menu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\MOEDA.ascx.designer.cs">
+      <DependentUpon>MOEDA.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\MOTORISTA.ascx.designer.cs">
+      <DependentUpon>MOTORISTA.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Motoristas.aspx.designer.cs">
+      <DependentUpon>Motoristas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\OpenAuthProviders.ascx.designer.cs">
+      <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\PesquisaClientesIE6.aspx.designer.cs">
+      <DependentUpon>PesquisaClientesIE6.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\PesquisaDestinoFinal.aspx.designer.cs">
+      <DependentUpon>PesquisaDestinoFinal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\PesquisaGrupoResiduos.aspx.designer.cs">
+      <DependentUpon>PesquisaGrupoResiduos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\RetencaoImpostosNF.aspx.designer.cs">
+      <DependentUpon>RetencaoImpostosNF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\testes.aspx.designer.cs">
+      <DependentUpon>testes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\fastcompost\destinacaofinal.aspx.designer.cs">
+      <DependentUpon>destinacaofinal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\fastcompost\equipamentos.aspx.designer.cs">
+      <DependentUpon>equipamentos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\fastcompost\hidrojateamento.aspx.designer.cs">
+      <DependentUpon>hidrojateamento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\fastcompost\ima.aspx.designer.cs">
+      <DependentUpon>ima.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\fastcompost\legislacao.aspx.designer.cs">
+      <DependentUpon>legislacao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\fastcompost\loginaplicativo.aspx.designer.cs">
+      <DependentUpon>loginaplicativo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\fastcompost\logistica.aspx.designer.cs">
+      <DependentUpon>logistica.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\fastcompost\perguntasfrequentes.aspx.designer.cs">
+      <DependentUpon>perguntasfrequentes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\fastcompost\RCD.aspx.designer.cs">
+      <DependentUpon>RCD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\fastcompost\USTE.aspx.designer.cs">
+      <DependentUpon>USTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioControleAterro.aspx.designer.cs">
+      <DependentUpon>RelatorioControleAterro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioGerencial.aspx.designer.cs">
+      <DependentUpon>RelatorioGerencial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioMovimentacaoPorDestinoFinalComResiduosEmDTR.aspx.designer.cs">
+      <DependentUpon>RelatorioMovimentacaoPorDestinoFinalComResiduosEmDTR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioNotasFiscaisImpostos.aspx.designer.cs">
+      <DependentUpon>RelatorioNotasFiscaisImpostos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioResiduos.aspx.designer.cs">
+      <DependentUpon>RelatorioResiduos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioTotalResiduos.aspx.designer.cs">
+      <DependentUpon>RelatorioTotalResiduos.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Code\Printweb.cs" />
+    <Compile Include="App_Code\usuario.cs" />
+    <Compile Include="Barras.aspx.cs">
+      <DependentUpon>Barras.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Barras.aspx.designer.cs">
+      <DependentUpon>Barras.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cabecalho.aspx.cs">
+      <DependentUpon>cabecalho.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ewvs_default.aspx.cs">
+      <DependentUpon>ewvs_default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ewvs_default.aspx.designer.cs">
+      <DependentUpon>ewvs_default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Balanca.aspx.cs">
+      <DependentUpon>Balanca.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Balanca.aspx.designer.cs">
+      <DependentUpon>Balanca.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\BlocosMTR.aspx.cs">
+      <DependentUpon>BlocosMTR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\BlocosMTR.aspx.designer.cs">
+      <DependentUpon>BlocosMTR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\BloqueioFinanceiro.aspx.cs">
+      <DependentUpon>BloqueioFinanceiro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\BloqueioFinanceiro.aspx.designer.cs">
+      <DependentUpon>BloqueioFinanceiro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\brooks\assessoria.aspx.cs">
+      <DependentUpon>assessoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\brooks\assessoria.aspx.designer.cs">
+      <DependentUpon>assessoria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\brooks\brooksambiental.aspx.cs">
+      <DependentUpon>brooksambiental.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\brooks\coletaresiduos.aspx.cs">
+      <DependentUpon>coletaresiduos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\brooks\coletaseletiva.aspx.cs">
+      <DependentUpon>coletaseletiva.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\brooks\contato.aspx.cs">
+      <DependentUpon>contato.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\brooks\contato.aspx.designer.cs">
+      <DependentUpon>contato.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\brooks\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\brooks\destinacaofinal.aspx.cs">
+      <DependentUpon>destinacaofinal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\brooks\DTR.aspx.cs">
+      <DependentUpon>DTR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\brooks\equipamentos.aspx.cs">
+      <DependentUpon>equipamentos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\brooks\gestaoglobal.aspx.cs">
+      <DependentUpon>gestaoglobal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\brooks\hidrojateamento.aspx.cs">
+      <DependentUpon>hidrojateamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\brooks\ima.aspx.cs">
+      <DependentUpon>ima.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\brooks\legislacao.aspx.cs">
+      <DependentUpon>legislacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\brooks\logistica.aspx.cs">
+      <DependentUpon>logistica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\brooks\perguntasfrequentes.aspx.cs">
+      <DependentUpon>perguntasfrequentes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\brooks\RCD.aspx.cs">
+      <DependentUpon>RCD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\brooks\RSS.aspx.cs">
+      <DependentUpon>RSS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\brooks\USTE.aspx.cs">
+      <DependentUpon>USTE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\fastcompost\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\fastcompost\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\fastcompost\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\fastcompost\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\cabecalho.ascx.cs">
+      <DependentUpon>cabecalho.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\CAMINHAO.ascx.cs">
+      <DependentUpon>CAMINHAO.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Caminhoes.aspx.cs">
+      <DependentUpon>Caminhoes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Caminhoes.aspx.designer.cs">
+      <DependentUpon>Caminhoes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\CDF.aspx.cs">
+      <DependentUpon>CDF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\CDF.aspx.designer.cs">
+      <DependentUpon>CDF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\CDFe_Importacao.aspx.cs">
+      <DependentUpon>CDFe_Importacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\CDFe_Importacao.aspx.designer.cs">
+      <DependentUpon>CDFe_Importacao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\CLIENTE.ascx.cs">
+      <DependentUpon>CLIENTE.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Clientes.aspx.cs">
+      <DependentUpon>Clientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Clientes.aspx.designer.cs">
+      <DependentUpon>Clientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\CLIENTESCONTROL.ascx.cs">
+      <DependentUpon>CLIENTESCONTROL.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\ClientesHistorico.aspx.cs">
+      <DependentUpon>ClientesHistorico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\ClientesHistorico.aspx.designer.cs">
+      <DependentUpon>ClientesHistorico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Clientes_Incluir.aspx.cs">
+      <DependentUpon>Clientes_Incluir.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\CodigosServicosPrefeitura.aspx.cs">
+      <DependentUpon>CodigosServicosPrefeitura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\CodigosServicosPrefeitura.aspx.designer.cs">
+      <DependentUpon>CodigosServicosPrefeitura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\ConfigSis.aspx.cs">
+      <DependentUpon>ConfigSis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\ConfigSis.aspx.designer.cs">
+      <DependentUpon>ConfigSis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Containeres.aspx.cs">
+      <DependentUpon>Containeres.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Contratos.aspx.cs">
+      <DependentUpon>Contratos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\ContratosIE6.aspx.cs">
+      <DependentUpon>ContratosIE6.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Contratos_Alterar.aspx.cs">
+      <DependentUpon>Contratos_Alterar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Contratos_Alterar.aspx.designer.cs">
+      <DependentUpon>Contratos_Alterar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Contratos_Cadastro.aspx.cs">
+      <DependentUpon>Contratos_Cadastro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Contratos_Reajustes.aspx.cs">
+      <DependentUpon>Contratos_Reajustes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Contratos_Reajustes.aspx.designer.cs">
+      <DependentUpon>Contratos_Reajustes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Contratos_Rescisao.aspx.cs">
+      <DependentUpon>Contratos_Rescisao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Contratos_Residuos.aspx.cs">
+      <DependentUpon>Contratos_Residuos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Contratos_Residuos.aspx.designer.cs">
+      <DependentUpon>Contratos_Residuos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\ControleAterroSanitario.aspx.cs">
+      <DependentUpon>ControleAterroSanitario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\DATA.ascx.cs">
+      <DependentUpon>DATA.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\DDR.aspx.cs">
+      <DependentUpon>DDR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\DDR_indisponivel.aspx.cs">
+      <DependentUpon>DDR_indisponivel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\DescricaoServicosNF.aspx.cs">
+      <DependentUpon>DescricaoServicosNF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\DESTINOFINAL.ascx.cs">
+      <DependentUpon>DESTINOFINAL.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\DestinoFinal.aspx.cs">
+      <DependentUpon>DestinoFinal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\DestinoFinal.aspx.designer.cs">
+      <DependentUpon>DestinoFinal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\DIA.ascx.cs">
+      <DependentUpon>DIA.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\DocumentacaoAplicavel.aspx.cs">
+      <DependentUpon>DocumentacaoAplicavel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\DocumentosPagina.aspx.cs">
+      <DependentUpon>DocumentosPagina.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\DTR.aspx.cs">
+      <DependentUpon>DTR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\DTRRelacaoResiduos.aspx.cs">
+      <DependentUpon>DTRRelacaoResiduos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\DTR_Enviados.aspx.cs">
+      <DependentUpon>DTR_Enviados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\DTR_Relatorio.aspx.cs">
+      <DependentUpon>DTR_Relatorio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\EmailsPadraoEnvio.aspx.cs">
+      <DependentUpon>EmailsPadraoEnvio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Entrar.aspx.cs">
+      <DependentUpon>Entrar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Entrar.aspx.designer.cs">
+      <DependentUpon>Entrar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\EscolherDB.aspx.cs">
+      <DependentUpon>EscolherDB.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\fastcompost\arquivos.aspx.cs">
+      <DependentUpon>arquivos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\fastcompost\arquivos.aspx.designer.cs">
+      <DependentUpon>arquivos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\fastcompost\assessoria.aspx.cs">
+      <DependentUpon>assessoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\fastcompost\assessoria.aspx.designer.cs">
+      <DependentUpon>assessoria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\fastcompost\brooksambiental.aspx.cs">
+      <DependentUpon>brooksambiental.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\fastcompost\brooksambiental.aspx.designer.cs">
+      <DependentUpon>brooksambiental.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\fastcompost\coletaresiduos.aspx.cs">
+      <DependentUpon>coletaresiduos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\fastcompost\coletaresiduos.aspx.designer.cs">
+      <DependentUpon>coletaresiduos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\fastcompost\coletaseletiva.aspx.cs">
+      <DependentUpon>coletaseletiva.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\fastcompost\coletaseletiva.aspx.designer.cs">
+      <DependentUpon>coletaseletiva.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\fastcompost\contato.aspx.cs">
+      <DependentUpon>contato.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\fastcompost\contato.aspx.designer.cs">
+      <DependentUpon>contato.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\fastcompost\destinacaofinal.aspx.cs">
+      <DependentUpon>destinacaofinal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\fastcompost\DTR.aspx.cs">
+      <DependentUpon>DTR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\fastcompost\DTR.aspx.designer.cs">
+      <DependentUpon>DTR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\fastcompost\equipamentos.aspx.cs">
+      <DependentUpon>equipamentos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\fastcompost\gestaoglobal.aspx.cs">
+      <DependentUpon>gestaoglobal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\fastcompost\gestaoglobal.aspx.designer.cs">
+      <DependentUpon>gestaoglobal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\fastcompost\hidrojateamento.aspx.cs">
+      <DependentUpon>hidrojateamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\fastcompost\ima.aspx.cs">
+      <DependentUpon>ima.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\fastcompost\legislacao.aspx.cs">
+      <DependentUpon>legislacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\fastcompost\loginaplicativo.aspx.cs">
+      <DependentUpon>loginaplicativo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\fastcompost\logistica.aspx.cs">
+      <DependentUpon>logistica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\fastcompost\perguntasfrequentes.aspx.cs">
+      <DependentUpon>perguntasfrequentes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\fastcompost\RCD.aspx.cs">
+      <DependentUpon>RCD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\fastcompost\RSS.aspx.cs">
+      <DependentUpon>RSS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\fastcompost\RSS.aspx.designer.cs">
+      <DependentUpon>RSS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\fastcompost\USTE.aspx.cs">
+      <DependentUpon>USTE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\brooks\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\brooks\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\brooks\loginaplicativo.aspx.cs">
+      <DependentUpon>loginaplicativo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\brooks\loginaplicativo.aspx.designer.cs">
+      <DependentUpon>loginaplicativo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\brooks\arquivos.aspx.cs">
+      <DependentUpon>arquivos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\brooks\arquivos.aspx.designer.cs">
+      <DependentUpon>arquivos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\GRUPORESIDUO.ascx.cs">
+      <DependentUpon>GRUPORESIDUO.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\IBAMA.aspx.cs">
+      <DependentUpon>IBAMA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\INTEIRO.ascx.cs">
+      <DependentUpon>INTEIRO.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\INTEIRO2.ascx.cs">
+      <DependentUpon>INTEIRO2.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\INTEIRO7.ascx.cs">
+      <DependentUpon>INTEIRO7.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\INTEIROMES.ascx.cs">
+      <DependentUpon>INTEIROMES.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\ItensMenuPermissoes.aspx.cs">
+      <DependentUpon>ItensMenuPermissoes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\ItensMenuPermissoes.aspx.designer.cs">
+      <DependentUpon>ItensMenuPermissoes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Lancamentos.aspx.cs">
+      <DependentUpon>Lancamentos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\layout.aspx.cs">
+      <DependentUpon>layout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\LiberarProgramacaoServicos.aspx.cs">
+      <DependentUpon>LiberarProgramacaoServicos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\LicencasAmbiental.aspx.cs">
+      <DependentUpon>LicencasAmbiental.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\LicencasAmbiental.aspx.designer.cs">
+      <DependentUpon>LicencasAmbiental.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Manage.aspx.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Manage.aspx.designer.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\menu.ascx.cs">
+      <DependentUpon>menu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\menu.aspx.cs">
+      <DependentUpon>menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\menu.aspx.designer.cs">
+      <DependentUpon>menu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\MOEDA.ascx.cs">
+      <DependentUpon>MOEDA.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\MOTORISTA.ascx.cs">
+      <DependentUpon>MOTORISTA.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Motoristas.aspx.cs">
+      <DependentUpon>Motoristas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\MovimentacaoDTR.aspx.cs">
+      <DependentUpon>MovimentacaoDTR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\MovimentacaoDTR.aspx.designer.cs">
+      <DependentUpon>MovimentacaoDTR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\MTR.aspx.cs">
+      <DependentUpon>MTR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\MTR.aspx.designer.cs">
+      <DependentUpon>MTR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\MTRCanceladaTransbordo.aspx.cs">
+      <DependentUpon>MTRCanceladaTransbordo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\MTRCanceladaTransbordo.aspx.designer.cs">
+      <DependentUpon>MTRCanceladaTransbordo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\MTRsPendentes.aspx.cs">
+      <DependentUpon>MTRsPendentes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\MTRsPendentes.aspx.designer.cs">
+      <DependentUpon>MTRsPendentes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Municipios.aspx.cs">
+      <DependentUpon>Municipios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Municipios.aspx.designer.cs">
+      <DependentUpon>Municipios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\NotasFiscais.aspx.cs">
+      <DependentUpon>NotasFiscais.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\NotasFiscais.aspx.designer.cs">
+      <DependentUpon>NotasFiscais.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\OpenAuthProviders.ascx.cs">
+      <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Parametros.aspx.cs">
+      <DependentUpon>Parametros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Parametros.aspx.designer.cs">
+      <DependentUpon>Parametros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\PesquisaCaminhoes.aspx.cs">
+      <DependentUpon>PesquisaCaminhoes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\PesquisaCaminhoes.aspx.designer.cs">
+      <DependentUpon>PesquisaCaminhoes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\PesquisaClientes.aspx.cs">
+      <DependentUpon>PesquisaClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\PesquisaClientes.aspx.designer.cs">
+      <DependentUpon>PesquisaClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\PesquisaClientesIE6.aspx.cs">
+      <DependentUpon>PesquisaClientesIE6.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\PesquisaDestinoFinal.aspx.cs">
+      <DependentUpon>PesquisaDestinoFinal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\PesquisaGrupoResiduos.aspx.cs">
+      <DependentUpon>PesquisaGrupoResiduos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\PesquisaIBAMA.aspx.cs">
+      <DependentUpon>PesquisaIBAMA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\PesquisaIBAMA.aspx.designer.cs">
+      <DependentUpon>PesquisaIBAMA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\PesquisaMotoristas.aspx.cs">
+      <DependentUpon>PesquisaMotoristas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\PesquisaMotoristas.aspx.designer.cs">
+      <DependentUpon>PesquisaMotoristas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\PesquisaMunicipios.aspx.cs">
+      <DependentUpon>PesquisaMunicipios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\PesquisaMunicipios.aspx.designer.cs">
+      <DependentUpon>PesquisaMunicipios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\PesquisaResiduos.aspx.cs">
+      <DependentUpon>PesquisaResiduos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\PesquisaResiduos.aspx.designer.cs">
+      <DependentUpon>PesquisaResiduos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\programacao.aspx.cs">
+      <DependentUpon>programacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\programacao.aspx.designer.cs">
+      <DependentUpon>programacao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\programacaoInsercao.aspx.cs">
+      <DependentUpon>programacaoInsercao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\programacaoInsercao.aspx.designer.cs">
+      <DependentUpon>programacaoInsercao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\RegisterExternalLogin.aspx.cs">
+      <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\RegisterExternalLogin.aspx.designer.cs">
+      <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\RelatorioDestinoFinalConferencia.aspx.cs">
+      <DependentUpon>RelatorioDestinoFinalConferencia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\RelatorioDestinoFinalConferencia.aspx.designer.cs">
+      <DependentUpon>RelatorioDestinoFinalConferencia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Residuos.aspx.cs">
+      <DependentUpon>Residuos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Residuos.aspx.designer.cs">
+      <DependentUpon>Residuos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\RetencaoImpostosNF.aspx.cs">
+      <DependentUpon>RetencaoImpostosNF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\RGR.aspx.cs">
+      <DependentUpon>RGR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\RGR.aspx.designer.cs">
+      <DependentUpon>RGR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\RGR2.aspx.cs">
+      <DependentUpon>RGR2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\RGR2.aspx.designer.cs">
+      <DependentUpon>RGR2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\sempermissao.aspx.cs">
+      <DependentUpon>sempermissao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\sempermissao.aspx.designer.cs">
+      <DependentUpon>sempermissao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\SenhaIPM.aspx.cs">
+      <DependentUpon>SenhaIPM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\SenhaIPM.aspx.designer.cs">
+      <DependentUpon>SenhaIPM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\ServicosDesenvolvedor.aspx.cs">
+      <DependentUpon>ServicosDesenvolvedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\ServicosDesenvolvedor.aspx.designer.cs">
+      <DependentUpon>ServicosDesenvolvedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\testes.aspx.cs">
+      <DependentUpon>testes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\TicketsPendentes.aspx.cs">
+      <DependentUpon>TicketsPendentes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\TicketsPendentes.aspx.designer.cs">
+      <DependentUpon>TicketsPendentes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\TipoAcondicionamento.aspx.cs">
+      <DependentUpon>TipoAcondicionamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\TipoAcondicionamento.aspx.designer.cs">
+      <DependentUpon>TipoAcondicionamento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\Usuarios.aspx.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\Usuarios.aspx.designer.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\uploadRGRCDFDDR.aspx.cs">
+      <DependentUpon>uploadRGRCDFDDR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\uploadRGRCDFDDR.aspx.designer.cs">
+      <DependentUpon>uploadRGRCDFDDR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="mtre.aspx.cs">
+      <DependentUpon>mtre.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mtre.aspx.designer.cs">
+      <DependentUpon>mtre.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pesquisasatisfacao.aspx.cs">
+      <DependentUpon>pesquisasatisfacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pesquisasatisfacao.aspx.designer.cs">
+      <DependentUpon>pesquisasatisfacao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Relatorios\Imprimir.aspx.cs">
+      <DependentUpon>Imprimir.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Relatorios\Imprimir.aspx.designer.cs">
+      <DependentUpon>Imprimir.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\PreviewRelatorioContaineres.aspx.cs">
+      <DependentUpon>PreviewRelatorioContaineres.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioConferenciaDiaria.aspx.cs">
+      <DependentUpon>RelatorioConferenciaDiaria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioConferenciaDiaria.aspx.designer.cs">
+      <DependentUpon>RelatorioConferenciaDiaria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioConferenciaDiariaPorCliente.aspx.cs">
+      <DependentUpon>RelatorioConferenciaDiariaPorCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioConferenciaDiariaPorCliente.aspx.designer.cs">
+      <DependentUpon>RelatorioConferenciaDiariaPorCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioConferenciaDiariaPorPeriodo.aspx.cs">
+      <DependentUpon>RelatorioConferenciaDiariaPorPeriodo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioConferenciaDiariaPorPeriodo.aspx.designer.cs">
+      <DependentUpon>RelatorioConferenciaDiariaPorPeriodo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioContaineres.aspx.cs">
+      <DependentUpon>RelatorioContaineres.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioContaineres.aspx.designer.cs">
+      <DependentUpon>RelatorioContaineres.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioControleAterro.aspx.cs">
+      <DependentUpon>RelatorioControleAterro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioDeClientesAReajustar.aspx.cs">
+      <DependentUpon>RelatorioDeClientesAReajustar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioDeClientesAReajustar.aspx.designer.cs">
+      <DependentUpon>RelatorioDeClientesAReajustar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioDeClientesBloqueados.aspx.cs">
+      <DependentUpon>RelatorioDeClientesBloqueados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioDeClientesBloqueados.aspx.designer.cs">
+      <DependentUpon>RelatorioDeClientesBloqueados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioDeLogs.aspx.cs">
+      <DependentUpon>RelatorioDeLogs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioDeLogs.aspx.designer.cs">
+      <DependentUpon>RelatorioDeLogs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioGerencial.aspx.cs">
+      <DependentUpon>RelatorioGerencial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioMovimentacaoDestinoFinal.aspx.cs">
+      <DependentUpon>RelatorioMovimentacaoDestinoFinal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioMovimentacaoDestinoFinal.aspx.designer.cs">
+      <DependentUpon>RelatorioMovimentacaoDestinoFinal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioMovimentacaoPorDestinoFinalComResiduosEmDTR.aspx.cs">
+      <DependentUpon>RelatorioMovimentacaoPorDestinoFinalComResiduosEmDTR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioMovimentacaoResiduosPorDestinoFinal.aspx.cs">
+      <DependentUpon>RelatorioMovimentacaoResiduosPorDestinoFinal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioMovimentacaoResiduosPorDestinoFinal.aspx.designer.cs">
+      <DependentUpon>RelatorioMovimentacaoResiduosPorDestinoFinal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioMovimentacaoResiduosPorDestinoFinalComValores.aspx.cs">
+      <DependentUpon>RelatorioMovimentacaoResiduosPorDestinoFinalComValores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioMovimentacaoResiduosPorDestinoFinalComValores.aspx.designer.cs">
+      <DependentUpon>RelatorioMovimentacaoResiduosPorDestinoFinalComValores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioMovimentacaoResiduosPorDestinoFinalDivergentes.aspx.cs">
+      <DependentUpon>RelatorioMovimentacaoResiduosPorDestinoFinalDivergentes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioMovimentacaoResiduosPorDestinoFinalDivergentes.aspx.designer.cs">
+      <DependentUpon>RelatorioMovimentacaoResiduosPorDestinoFinalDivergentes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioNotasFiscaisImpostos.aspx.cs">
+      <DependentUpon>RelatorioNotasFiscaisImpostos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioParaFaturamentoComResiduos.aspx.cs">
+      <DependentUpon>RelatorioParaFaturamentoComResiduos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioParaFaturamentoComResiduos.aspx.designer.cs">
+      <DependentUpon>RelatorioParaFaturamentoComResiduos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioParaFaturamentoParaCliente.aspx.cs">
+      <DependentUpon>RelatorioParaFaturamentoParaCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioParaFaturamentoParaCliente.aspx.designer.cs">
+      <DependentUpon>RelatorioParaFaturamentoParaCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioReciclaveis.aspx.cs">
+      <DependentUpon>RelatorioReciclaveis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioReciclaveis.aspx.designer.cs">
+      <DependentUpon>RelatorioReciclaveis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioReciclaveisPorDestinoFinal.aspx.cs">
+      <DependentUpon>RelatorioReciclaveisPorDestinoFinal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioReciclaveisPorDestinoFinal.aspx.designer.cs">
+      <DependentUpon>RelatorioReciclaveisPorDestinoFinal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioResiduos.aspx.cs">
+      <DependentUpon>RelatorioResiduos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Relatorios\Relatorios_Querys.aspx.cs">
+      <DependentUpon>Relatorios_Querys.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioTotalResiduos.aspx.cs">
+      <DependentUpon>RelatorioTotalResiduos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Relatorios\RelatorioVendasPorRepresentantePorPeriodo.aspx.cs">
+      <DependentUpon>RelatorioVendasPorRepresentantePorPeriodo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms\brooks\brooksambiental.aspx.designer.cs">
+      <DependentUpon>brooksambiental.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\brooks\coletaresiduos.aspx.designer.cs">
+      <DependentUpon>coletaresiduos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\brooks\DTR.aspx.designer.cs">
+      <DependentUpon>DTR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\brooks\RCD.aspx.designer.cs">
+      <DependentUpon>RCD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\brooks\RSS.aspx.designer.cs">
+      <DependentUpon>RSS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\brooks\USTE.aspx.designer.cs">
+      <DependentUpon>USTE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\brooks\coletaseletiva.aspx.designer.cs">
+      <DependentUpon>coletaseletiva.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\brooks\destinacaofinal.aspx.designer.cs">
+      <DependentUpon>destinacaofinal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\brooks\equipamentos.aspx.designer.cs">
+      <DependentUpon>equipamentos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\brooks\gestaoglobal.aspx.designer.cs">
+      <DependentUpon>gestaoglobal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\brooks\hidrojateamento.aspx.designer.cs">
+      <DependentUpon>hidrojateamento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\brooks\legislacao.aspx.designer.cs">
+      <DependentUpon>legislacao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\brooks\logistica.aspx.designer.cs">
+      <DependentUpon>logistica.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\brooks\perguntasfrequentes.aspx.designer.cs">
+      <DependentUpon>perguntasfrequentes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\brooks\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="forms\brooks\ima.aspx.designer.cs">
+      <DependentUpon>ima.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.master.cs">
+      <DependentUpon>Site.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.master.designer.cs">
+      <DependentUpon>Site.master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App_Data\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="bin\Antlr3.Runtime.dll.refresh" />
+    <Content Include="bin\AspNet.ScriptManager.jQuery.dll.refresh" />
+    <Content Include="bin\AspNet.ScriptManager.jQuery.UI.Combined.dll.refresh" />
+    <Content Include="bin\dotless.AspNet.dll.refresh" />
+    <Content Include="bin\dotless.Core.dll.refresh" />
+    <Content Include="bin\DotNetOpenAuth.AspNet.dll.refresh" />
+    <Content Include="bin\DotNetOpenAuth.Core.dll.refresh" />
+    <Content Include="bin\DotNetOpenAuth.OAuth.Consumer.dll.refresh" />
+    <Content Include="bin\DotNetOpenAuth.OAuth.dll.refresh" />
+    <Content Include="bin\DotNetOpenAuth.OpenId.dll.refresh" />
+    <Content Include="bin\DotNetOpenAuth.OpenId.RelyingParty.dll.refresh" />
+    <Content Include="bin\EntityFramework.dll.refresh" />
+    <Content Include="bin\itextsharp.dll.refresh" />
+    <Content Include="bin\LibSILC.dll.config" />
+    <Content Include="bin\Microsoft.AspNet.Membership.OpenAuth.dll.refresh" />
+    <Content Include="bin\Microsoft.AspNet.Web.Optimization.WebForms.dll.refresh" />
+    <Content Include="bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll.refresh" />
+    <Content Include="bin\Microsoft.Extensions.DependencyInjection.dll.refresh" />
+    <Content Include="bin\Microsoft.ScriptManager.MSAjax.dll.refresh" />
+    <Content Include="bin\Microsoft.ScriptManager.WebForms.dll.refresh" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll.refresh" />
+    <Content Include="bin\Newtonsoft.Json.dll.refresh" />
+    <Content Include="bin\PdfSharp.Charting.dll.refresh" />
+    <Content Include="bin\PdfSharp.dll.refresh" />
+    <Content Include="bin\System.Web.Optimization.dll.refresh" />
+    <Content Include="bin\System.Web.Optimization.Less.dll.refresh" />
+    <Content Include="bin\System.Web.Providers.dll.refresh" />
+    <Content Include="bin\WebGrease.dll.refresh" />
+    <Content Include="Bundle.config" />
+    <Content Include="forms\Login.php" />
+    <Content Include="forms\Web.config" />
+    <Content Include="Images\Thumbs.db" />
+    <Content Include="Site.master" />
+    <Content Include="Temp\RelAterroMTRe_0002_210501_210507.pdf" />
+    <Content Include="Temp\RelAterroMTRe_0002_210524_210524.pdf" />
+    <Content Include="Temp\RelAterroMTRe_0013_210501_210507.pdf" />
+    <Content Include="Temp\RelAterroMTRe_0013_210524_210524.pdf" />
+    <Content Include="Temp\RELATERRO_0002_210201_210228.pdf" />
+    <Content Include="Temp\RELATERRO_0005_210201_210228.pdf" />
+    <Content Include="Temp\RELATERRO_0006_210201_210228.pdf" />
+    <Content Include="Temp\RELATERRO_0007_210201_210228.pdf" />
+    <Content Include="Temp\RELATERRO_0013_210201_210228.pdf" />
+    <Content Include="Temp\RELATERRO_0028_210201_210228.pdf" />
+    <Content Include="Temp\RELATERRO_0030_210201_210228.pdf" />
+    <Content Include="Temp\RELATERRO_0031_210201_210228.pdf" />
+    <Content Include="Temp\RELATERRO_0049_210201_210228.pdf" />
+    <Content Include="Temp\RELATERRO_0053_210201_210228.pdf" />
+    <Content Include="Temp\RELATERRO_0059_210201_210228.pdf" />
+    <Content Include="Temp\RELATERRO_0066_210201_210228.pdf" />
+    <Content Include="UploadedImages\BRO000935.pdf" />
+    <Content Include="UploadedImages\fatura000215.pdf" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="dados\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ConfigurationSilc\ConfigurationSilc.csproj">
+      <Project>{4abbb7e8-7343-4b16-8be8-1c22231b655a}</Project>
+      <Name>ConfigurationSilc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LibSILC\LibSILC.csproj">
+      <Project>{6cb173db-e8a4-4402-b7e9-2538133a5c2c}</Project>
+      <Name>LibSILC</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" /> -->
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54716</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44311/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets'))" />
+    <Error Condition="!Exists('..\packages\ZstdSharp.0.7.2\build\ZstdSharp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ZstdSharp.0.7.2\build\ZstdSharp.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" />
+  <Import Project="..\packages\ZstdSharp.0.7.2\build\ZstdSharp.targets" Condition="Exists('..\packages\ZstdSharp.0.7.2\build\ZstdSharp.targets')" />
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

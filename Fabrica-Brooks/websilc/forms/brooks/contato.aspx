@@ -1,0 +1,170 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="contato.aspx.cs" Inherits="brooks" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="aspx.css" type="text/css" rel="stylesheet" />
+    <title></title>
+     <style>
+        .body 
+        {              
+            background-image:url('fundobrooks.jpg');
+        }
+        .divcentral
+        {
+            background-image: url('sedecontato.jpg'); width: 1000px; height:334px;margin:auto;
+        }
+        .divmenuservicos
+        {
+            background-image: url('menuservicos.jpg'); width: 1000px; height:185px;margin:auto;
+        }
+        .divinstalacoes
+        {
+            background-image: url('contato2.jpg'); width: 1000px; height:428px;margin:auto;
+        }
+        .login 
+        {
+            width: 360px;
+            background: white;
+            position:relative;
+            left: 30%;
+            top: 26%;
+            color:black;
+            font-size:8pt;
+            font-family:Arial;
+            color: black;
+            border:ridge 8px ActiveBorder;
+        }
+        .cabecbrooks
+        {
+            background: transparent center center repeat-y; width: 1000px; auto;margin: auto;
+            color:black;            
+            font-size:11pt;
+        }
+        .rodapebrooks
+        {
+            background: transparent center center repeat-y; width: 1000px;margin: auto;
+            color:black;            
+            font-size:11pt;
+        }
+    </style>
+    <script type="text/javascript" src="imagemvermelha.js"> </script>
+</head>
+<script src="geral.js" lang="javascript" type="text/javascript"></script>
+<script lang="javascript" type="text/javascript">
+	function EnviaEmail()
+	{
+		document.getElementById("<%=btnProcurar.ClientID%>").click();
+	}
+</script>
+<body class="body">
+    <form id="form1" runat="server">
+        <div class="cabecbrooks">
+            <table style="text-align:center;" border:"0"; cellpadding="0" cellspacing="0">
+                <tr>
+                    <td><asp:Image ID="Image1" runat="server" ImageAlign="Middle" ImageUrl="~/Images/cabec1brooks.jpg" /></td>
+                    <td style="position: relative; width: 280px; background-image: url('../../Images/backareacliente.jpg')" >
+                        <asp:HyperLink ID="lnkAreaCliente" runat="server" NavigateUrl="~/forms/brooks/login.aspx" Font-Bold="true" ForeColor="Brown">Área do Cliente</asp:HyperLink>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="divcentral">
+            <table cellspacing="0" cellpadding="0">
+                <tr>
+                    <td>
+                        <a href="default.aspx"><asp:Image ID="Image5" runat="server" ImageUrl="~/forms/brooks/home.jpg" BorderWidth="0" /></a>
+                    </td>
+                    <td style="position:relative; left:80px;">
+                        <a href="brooksambiental.aspx"><img id="Image6" src="brooksambiental.jpg" style="left:200px;border:0px;" /></a>
+                    </td>
+                    <td style="position:relative; left:150px;">
+                        <a href="equipamentos.aspx"><img id="Img1" src="equipamentos.jpg" style="border:0px;" /></a>
+                    </td>
+                    <td style="position:relative; left:240px;">
+                        <a href="legislacao.aspx"><img id="Img2" src="legislacao.jpg" style="left:200px;border:0px;" /></a>
+                    </td>
+                    <td style="position:relative; left:310px;">
+                        <a href="perguntasfrequentes.aspx"><img id="Img3" src="perguntasfrequentes.jpg" style="left:200px;border:0px;" /></a>
+                    </td>
+                    <td style="position:relative; left:374px;">
+                        <a href="contato.aspx"><img id="Img4" src="contato3.jpg" style="left:200px;border:0px;" /></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="divmenuservicos">        
+            <table>
+                <tr>
+                    <td style="position:relative; top: 35px; left: 62px;">
+                        <a href="assessoria.aspx"><img id="Img5" src="assessoriafundo.jpg" onmouseover="assessoria();" style="border:0px;" /></a>
+                    </td>
+                    <td style="position:relative; top: 26px; left:62px;">
+                        <a href="coletaseletiva.aspx"><img id="Img6" src="coletaseletiva.jpg" onmouseover="coletaseletiva();" style="border:0px;" /></a>
+                    </td>
+                    <td style="position:relative; top: 34px; left:70px;">
+                        <a href="coletaresiduos.aspx"><img id="Img7" src="coletaresiduosfundo.jpg" onmouseover="coletaresiduos();" style="border:0px;" /></a>
+                    </td>                
+                    <td style="position:relative; top: 36px; left:74px;">
+                        <a href="RCD.aspx"><img id="Img8" src="RCDfundo.jpg" onmouseover="RCD();" style="border:0px;" /></a>
+                    </td>                
+                    <td style="position:relative; top: 36px; left:76px;">
+                        <a href="RSS.aspx"><img id="Img9" src="RSSfundo.jpg" onmouseover="RSS();" style="border:0px;" /></a>
+                    </td>
+                    <td style="position:relative; top: 32px; left:68px;">
+                        <a href="hidrojateamento.aspx"><img id="Img10" src="hidrojateamentofundo.jpg" onmouseover="hidrojateamento();" style="border:0px;" /></a>
+                    </td>
+                    <td style="position:relative; top: 32px; left:64px;">
+                        <a href="gestaoglobal.aspx"><img id="Img11" src="gestaoglobalfundo.jpg" onmouseover="gestaoglobal();" style="border:0px;" /></a>
+                    </td>
+                    <td style="position:relative; top: 30px; left:60px;">
+                        <a href="USTE.aspx"><img id="Img12" src="USTEfundo.jpg" onmouseover="USTE();" style="border:0px;" /></a>
+                    </td>
+                    <td style="position:relative; top: 28px; left:62px;">
+                        <a href="DTR.aspx"><img id="Img13" src="dtrfundo.jpg" onmouseover="DTR();" style="border:0px;" /></a>
+                    </td>
+                    <td style="position:relative; top: 28px; left:62px;">
+                        <a href="destinacaofinal.aspx"><img id="Img14" src="destinacaofinalfundo.jpg" onmouseover="destinacaofinal();" style="border:0px;" /></a>
+                    </td>
+                    <td style="position:relative; top: 34px; left:67px;" >
+                        <a href="logistica.aspx"><img id="Img15" src="logisticafundo.jpg" onmouseover="logistica();" style="border:0px;" /></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="instalacoes" class="divinstalacoes">
+            <div style="position:relative; top:61px; left:528px; width:390px;">
+                <asp:TextBox ID="txtNome" runat="server" Width="396px" BorderStyle="None"></asp:TextBox>
+            </div>
+            <div style="position:relative; top:81px; left:528px; width:390px;">
+                <asp:TextBox ID="txtEmail" runat="server" Width="396px" BorderStyle="None"></asp:TextBox>
+            </div>        
+            <div style="position:relative; top:101px; left:528px; width:390px;">
+                <asp:TextBox ID="txtTelefone" runat="server" Width="396px" BorderStyle="None"></asp:TextBox>
+            </div>
+            <div style="position:relative; top:121px; left:528px; width:390px; height: 127px;">
+                <asp:TextBox ID="txtMensagem" runat="server" Width="396px" BorderStyle="None" Height="120px" TextMode="MultiLine"></asp:TextBox>
+            </div>
+            <div style="position:relative; top:156px; left:528px; width:130px;">
+                <asp:DropDownList ID="ddlAreaContato" runat="server" style="height: 22px; width: 128px">
+                    <asp:ListItem Value="Geral">Geral</asp:ListItem>
+                    <asp:ListItem Value="Comercial">Comercial</asp:ListItem>
+                    <asp:ListItem Value="Tecnica">Tecnica</asp:ListItem>
+                    <asp:ListItem Value="Coletas">Coletas/Logistica</asp:ListItem>
+                    <asp:ListItem Value="Financeiro">Financeiro</asp:ListItem>
+                    <asp:ListItem Value="Diretoria">Diretoria</asp:ListItem>
+                </asp:DropDownList>
+            </div>
+            <div style="position:relative; top:131px; left:864px; width:79px;">
+                <img id="imgEnviar" src="enviar.jpg" style="cursor:pointer;" onclick="EnviaEmail();" />
+            </div>
+        </div>
+        <asp:Button ID="btnProcurar" Visible="true" BackColor="ButtonFace" ForeColor="ButtonFace" BorderWidth="0" runat="server" Text="P" Width="1px" OnClick="btnProcurar_Click" />
+	</form>
+    <div class="rodapebrooks">
+        <asp:Image ID="Image2" runat="server" ImageAlign="Middle" ImageUrl="~/Images/rodapebrooks.jpg" />
+    </div>
+</body>
+</html>

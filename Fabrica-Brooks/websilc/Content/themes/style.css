@@ -1,0 +1,24 @@
+/*
+Theme Name: Brooks
+Theme URI: http://www.brooksambiental.com.br
+Author: Tutano.cc
+Author URI: http://tutano.cc/
+Description: Brooks theme
+Version: 1.0
+*/
+
+.clientBrooksLogged{
+    position: absolute;
+    top: 40px;
+    right: 30px;
+    text-align: right;
+    color: #fff;
+    line-height: 15px;
+}
+.clientBrooksLogged a{
+    color: #7b7979;
+    font-size: 13px;
+    text-decoration: none;
+    text-transform: lowercase;
+}
+.clientBrooksLogged a:hover{color: #9c161e; }

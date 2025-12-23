@@ -1,0 +1,59 @@
+﻿.titulo2
+{
+    background-color:ButtonFace;
+    font-size: 10px; 
+    margin:0px;
+    padding:4px;
+    font-family:Arial;    
+}
+.titulo3
+{
+    background-color: ButtonFace;
+    font-size: 11px;
+    margin: 1px;
+    padding: 4px;
+    font-family: Arial;
+}
+.tituloFundoBranco
+{
+    font-size: 12px; 
+    margin:0px;
+    padding:4px;
+    font-family:Arial;
+}
+.sembordadireita
+{
+    border-right-color: black;
+    border-right-width:2px;
+}
+.padItemGrade
+{
+    padding:2px;
+}
+.LetrasTD
+{
+    width: 10px;
+    font-size:9px;
+}
+.LetrasLabel
+{
+    font-family:Arial;
+    font-size: 10px;
+    margin-top: 1px;
+    margin-bottom: 3px;
+}
+.BotoesCadastro
+{
+    background-color: ButtonFace;
+    font-size: 14px;
+    margin: 10px;
+    padding: 4px;
+    width: 238px;
+    height: 11px;
+}
+.Menu
+{
+    font-size: 11px;
+    height:1%;
+    width:100%;
+}

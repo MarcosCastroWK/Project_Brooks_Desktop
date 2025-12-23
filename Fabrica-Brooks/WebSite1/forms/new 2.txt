@@ -1,0 +1,44 @@
+	private void SalvarLog(string pOperacao)
+    {
+        clsLog oLog = new clsLog();
+        clsLogDados oLogDados = new clsLogDados();
+        oLog.Data = DateTime.Now.ToString("yyyy-MM-dd");
+        oLog.CodigoUsuario = oUsuario.Codigo;
+        oLog.Hora = DateTime.Now.ToString("hh:mm:ss");
+        oLog.LocalOperacao = "Cadastro Destino Final";
+        oLog.Operacao = pOperacao;
+        oLog.Log = oLog.Log + "Código Destino: " + hifCodigo.Value + " \n";
+        oLog.Log = oLog.Log + "Data do cadastro: " + datDataCadastro.Data + " \n";
+		if (chkAtivo.Checked)
+			oLog.Log = oLog.Log + "Ativo: Sim \n";
+		else
+			oLog.Log = oLog.Log + "Ativo: Não \n";			
+		oLog.Log = oLog.Log + "Nome/Razão Social: " + txtNome.Text + " \n";
+		oLog.Log = oLog.Log + "Nome Fantasia: " + txtNomeFantasia.Text + " \n";
+		oLog.Log = oLog.Log + "Endereço: " + txtEndereco.Text + " \n";	
+        oLog.Log = oLog.Log + "Bairro: " + txtBairro.Text + " \n";		
+		oLog.Log = oLog.Log + "Cidade: " + txtCidade.Text + " \n";	
+		oLog.Log = oLog.Log + "UF: " + txtUF.Text + " \n";			
+		oLog.Log = oLog.Log + "CEP: " + intCEP.Valor + " \n";
+		oLog.Log = oLog.Log + "CNPJ: " + txtCNPJ.Text + " \n";
+		oLog.Log = oLog.Log + "Nome do arquivo de logomarca com .jpg/.bmp/.png: " + txtNomeArqLogo.Text + " \n";
+		oLog.Log = oLog.Log + "Telefone: " + txtTelefone.Text + " \n";
+		oLog.Log = oLog.Log + "Celular: " + txtCelular.Text + " \n";
+		oLog.Log = oLog.Log + "Nome do arquivo de assinatura com .jpg/.bmp/.png: " + txtNomeArqAss.Text + " \n";
+		oLog.Log = oLog.Log + "e-mail: " + txtEmail.Text + " \n";
+		oLog.Log = oLog.Log + "Local Aterro: " + txtLocalAterro.Text + " \n";
+		if (chkEnviarEmailCDF.Checked)
+			oLog.Log = oLog.Log + "Enviar e-mail de CDF para Fornecedor: Sim \n";
+		else
+			oLog.Log = oLog.Log + "Enviar e-mail de CDF para Fornecedor: Não \n";		
+		if (chkEnviarMovResiduos.Checked)
+			oLog.Log = oLog.Log + "Enviar relatório de movimentação de resíduos por e-mail: Sim \n";
+		else
+			oLog.Log = oLog.Log + "Enviar relatório de movimentação de resíduos por e-mail: Não \n";
+		if (chkEmiteCDF.Checked)
+			oLog.Log = oLog.Log + "Fornecedor Emite CDF (Brooks não gera CDF): Não \n";
+		else
+			oLog.Log = oLog.Log + "Fornecedor Emite CDF (Brooks não gera CDF): Sim \n";
+        oLogDados.Inserir(oLog);
+
+    }

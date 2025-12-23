@@ -1,0 +1,15 @@
+  Determinando os projetos a serem restaurados...
+  c:\Users\Ideapad 3\Desktop\Fabrica-Brooks\ConfigurationSilc\ConfigurationSilc.csproj restaurado (em 918 ms).
+  ConfigurationSilc -> C:\Users\Ideapad 3\Desktop\Fabrica-Brooks\ConfigurationSilc\bin\Debug\netstandard2.0\ConfigurationSilc.dll
+  LibSILC -> c:\Users\Ideapad 3\Desktop\Fabrica-Brooks\LibSILC\bin\Debug\LibSILC.dll
+c:\Users\Ideapad 3\Desktop\Fabrica-Brooks\SILC.Web\forms\RGR2.aspx.designer.cs(528,62): error CS0102: O tipo "RGR2" já contém uma definição para "GradeEfluentes" [c:\Users\Ideapad 3\Desktop\Fabrica-Brooks\SILC.Web\SILC.Web.csproj]
+
+FALHA da compilação.
+
+c:\Users\Ideapad 3\Desktop\Fabrica-Brooks\SILC.Web\forms\RGR2.aspx.designer.cs(528,62): error CS0102: O tipo "RGR2" já contém uma definição para "GradeEfluentes" [c:\Users\Ideapad 3\Desktop\Fabrica-Brooks\SILC.Web\SILC.Web.csproj]
+    0 Aviso(s)
+    1 Erro(s)
+
+Tempo Decorrido 00:00:02.65
+
+As atualizações de carga de trabalho estão disponíveis. Execute `dotnet workload list` para obter mais informações.

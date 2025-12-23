@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6CB173DB-E8A4-4402-B7E9-2538133A5C2C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LibSILC</RootNamespace>
+    <AssemblyName>LibSILC</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.1, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.1\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.16.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\WebSite1\bin\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\formSILC\bin\Debug\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="class\clsAvisoInsercaoProgFechadaDados.cs" />
+    <Compile Include="class\clsAvisoInsercaoProgramacaoFechada.cs" />
+    <Compile Include="class\clsBloqFinanceiroDados.cs" />
+    <Compile Include="class\clsAbastecimento.cs" />
+    <Compile Include="class\clsAliquotaImpostos.cs" />
+    <Compile Include="class\clsAnaliseCDF.cs" />
+    <Compile Include="class\clsAnaliseDDR.cs" />
+    <Compile Include="class\clsAnaliseRGR.cs" />
+    <Compile Include="class\clsClasse.cs" />
+    <Compile Include="class\clsClasseDados.cs" />
+    <Compile Include="class\clsClienteHistoricoDados.cs" />
+    <Compile Include="class\clsEnderecosHistoricoDados.cs" />
+    <Compile Include="class\clsEstadoFisico.cs" />
+    <Compile Include="class\clsEstadoFisicoDados.cs" />
+    <Compile Include="class\clsGeradorRelatorio.cs" />
+    <Compile Include="class\clsGeradorRelatorioDados.cs" />
+    <Compile Include="class\clsGeral.cs" />
+    <Compile Include="class\clsLogDados.cs" />
+    <Compile Include="class\clsLog.cs" />
+    <Compile Include="class\clsExportacaoRadarDados.cs" />
+    <Compile Include="class\clsExportacaoRadar.cs" />
+    <Compile Include="class\clsDTR_Relacao.cs" />
+    <Compile Include="class\clsItensMenuPermissoesDados.cs" />
+    <Compile Include="class\clsItensMenuPermissoes .cs" />
+    <Compile Include="class\clsItensMenuDados.cs" />
+    <Compile Include="class\clsItensMenu.cs" />
+    <Compile Include="class\clsContratosReajustes.cs" />
+    <Compile Include="class\clsDestinoFinal.cs" />
+    <Compile Include="class\clsAterroSanitario.cs" />
+    <Compile Include="class\clsAvisoColeta.cs" />
+    <Compile Include="class\clsBloqueioFinanceiro.cs" />
+    <Compile Include="class\clsCacambas.cs" />
+    <Compile Include="class\clsCaminhoes.cs" />
+    <Compile Include="class\clsCertificadoResiduos.cs" />
+    <Compile Include="class\clsClienteInativo.cs" />
+    <Compile Include="class\clsClientesHistorico.cs" />
+    <Compile Include="class\clsClientes.cs" />
+    <Compile Include="class\clsDiasDeColeta.cs" />
+    <Compile Include="class\clsDiasDeColetaDados.cs" />
+    <Compile Include="class\clsDocumentacaoAplicavel.cs" />
+    <Compile Include="class\clsGrupoResiduos.cs" />
+    <Compile Include="class\clsModeloMTRe.cs" />
+    <Compile Include="class\clsModeloMTReDados.cs" />
+    <Compile Include="class\clsModeloMTReResiduos.cs" />
+    <Compile Include="class\clsModeloMTReResiduosDados.cs" />
+    <Compile Include="class\clsMTRe.cs" />
+    <Compile Include="class\clsProgramacaoDiariaServicos.cs" />
+    <Compile Include="class\clsTecnologia.cs" />
+    <Compile Include="class\clsTecnologiaDados.cs" />
+    <Compile Include="class\clsTipoAcondicionamento.cs" />
+    <Compile Include="class\clsTipoAcondicionamentoDados.cs" />
+    <Compile Include="class\clsTipoCobranca.cs" />
+    <Compile Include="class\clsTipoCobrancaDados.cs" />
+    <Compile Include="class\clsUnidadeDados.cs" />
+    <Compile Include="class\clsUnidades.cs" />
+    <Compile Include="class\clsUsuarios.cs" />
+    <Compile Include="class\clsCodigoServicosPrefeitura.cs" />
+    <Compile Include="class\clsColocaRetira.cs" />
+    <Compile Include="class\clsConfigSis.cs" />
+    <Compile Include="class\clsContas.cs" />
+    <Compile Include="class\clsContratoResiduos.cs" />
+    <Compile Include="class\clsDescricaoServicosNF.cs" />
+    <Compile Include="class\clsDiaMes.cs" />
+    <Compile Include="class\clsDiasSemana.cs" />
+    <Compile Include="class\clsDTR.cs" />
+    <Compile Include="class\clsEnderecos.cs" />
+    <Compile Include="class\clsEnderecosHistoricoCadastro.cs" />
+    <Compile Include="class\clsEstados.cs" />
+    <Compile Include="class\clsFatura.cs" />
+    <Compile Include="class\clsFornecedores.cs" />
+    <Compile Include="class\clsFuncionarios.cs" />
+    <Compile Include="class\clsIBAMA.cs" />
+    <Compile Include="class\clsIndicadores.cs" />
+    <Compile Include="class\clsLancamentoMTR.cs" />
+    <Compile Include="class\clsLancamentos.cs" />
+    <Compile Include="class\clsLicencaAmbiental.cs" />
+    <Compile Include="class\clsLimiteImpostos.cs" />
+    <Compile Include="class\clsLinhasCertificadoResiduos.cs" />
+    <Compile Include="class\clsMapaProgSemanal.cs" />
+    <Compile Include="class\clsMesAno.cs" />
+    <Compile Include="class\clsMovimentacaoDTR.cs" />
+    <Compile Include="class\clsMunicipios.cs" />
+    <Compile Include="class\clsNotasFiscais.cs" />
+    <Compile Include="class\clsObjetos.cs" />
+    <Compile Include="class\clsParametros.cs" />
+    <Compile Include="class\clsPermissoes.cs" />
+    <Compile Include="class\clsContratos.cs" />
+    <Compile Include="class\clsProgramacaoFechada.cs" />
+    <Compile Include="class\clsReprogramacaoServicos.cs" />
+    <Compile Include="class\clsResiduos.cs" />
+    <Compile Include="class\clsRotaMapa.cs" />
+    <Compile Include="class\clsRoteiro.cs" />
+    <Compile Include="class\clsRoteiroMensal.cs" />
+    <Compile Include="class\clsRoteiroSemanal.cs" />
+    <Compile Include="class\clsSenhaIPM.cs" />
+    <Compile Include="class\clsServicosEventuais.cs" />
+    <Compile Include="class\clsServicosEventuaisResiduos.cs" />
+    <Compile Include="class\clsServicosFutura.cs" />
+    <Compile Include="class\clsSituacaoTributaria.cs" />
+    <Compile Include="class\clsStatusCorProgramacao.cs" />
+    <Compile Include="class\clsAbastecimentoDados.cs" />
+    <Compile Include="class\clsCaminhoesDados.cs" />
+    <Compile Include="class\clsCacambaDados.cs" />
+    <Compile Include="class\clsDestinoFinalDados.cs" />
+    <Compile Include="class\clsLicencaAmbientalDados.cs" />
+    <Compile Include="class\clsFuncionariosDados.cs" />
+    <Compile Include="class\clsResiduoDados.cs" />
+    <Compile Include="class\clsIBAMADados.cs" />
+    <Compile Include="class\clsClienteDados.cs" />
+    <Compile Include="class\clsMunicipiosDados.cs" />
+    <Compile Include="class\clsEnderecosDados.cs" />
+    <Compile Include="class\clsContratosDados.cs" />
+    <Compile Include="class\clsContratosReajustesDados.cs" />
+    <Compile Include="class\clsContratoResiduosDados.cs" />
+    <Compile Include="class\clsAliquotaImpostosDados.cs" />
+    <Compile Include="class\clsAnaliseCDFDados.cs" />
+    <Compile Include="class\clsAnaliseDDRDados.cs" />
+    <Compile Include="class\clsAnaliseRGRDados.cs" />
+    <Compile Include="class\clsAterroSanitarioDados.cs" />
+    <Compile Include="class\clsCodigoServicosPrefeituraDados.cs" />
+    <Compile Include="class\clsConfigSisDados.cs" />
+    <Compile Include="class\clsDescricaoServicosNFDados.cs" />
+    <Compile Include="class\clsDTRDados.cs" />
+    <Compile Include="class\clsEstadosDados.cs" />
+    <Compile Include="class\clsFaturaDados.cs" />
+    <Compile Include="class\clsFornecedoresDados.cs" />
+    <Compile Include="class\clsIndicadoresDados.cs" />
+    <Compile Include="class\clsLancamentoMTRDados.cs" />
+    <Compile Include="class\clsLancamentosDados.cs" />
+    <Compile Include="class\clsMovimentacaoDTRDados.cs" />
+    <Compile Include="class\clsNotasFiscaisDados.cs" />
+    <Compile Include="class\clsObjetosDados.cs" />
+    <Compile Include="class\clsCorpoNotasFiscais.cs" />
+    <Compile Include="class\clsCorpoNotasFiscaisDados.cs" />
+    <Compile Include="class\clsParametrosDados.cs" />
+    <Compile Include="class\clsPermissoesDados.cs" />
+    <Compile Include="class\clsProgramacaoFechadaDados.cs" />
+    <Compile Include="class\clsReprogramacaoDados.cs" />
+    <Compile Include="class\clsSenhaIPMDados.cs" />
+    <Compile Include="class\clsServicosFuturaDados.cs" />
+    <Compile Include="class\clsSituacaoTributariaDados.cs" />
+    <Compile Include="class\clsStatusCorProgramacaoDados.cs" />
+    <Compile Include="class\clsEmailsPadraoEnvio.cs" />
+    <Compile Include="class\clsEmaisPadraoEnvioDados.cs" />
+    <Compile Include="class\clsBlocosMTR.cs" />
+    <Compile Include="class\clsBlocosMTRDados.cs" />
+    <Compile Include="class\clsMTRCanceladaTransbordo.cs" />
+    <Compile Include="class\clsMTRCanceladaTransbordoDados.cs" />
+    <Compile Include="class\clsDocumentosPagina.cs" />
+    <Compile Include="class\clsDocumentosDados.cs" />
+    <Compile Include="class\clsParamatrosRelatorio.cs" />
+    <Compile Include="class\clsTABMotivosOBSDados.cs" />
+    <Compile Include="class\clsConversor.cs" />
+    <Compile Include="class\clsCDFe.cs" />
+    <Compile Include="class\clsCDFeDados.cs" />
+    <Compile Include="class\clsDDR_Conferencia.cs" />
+    <Compile Include="class\clsDocumentacaoAplicavelDados.cs" />
+    <Compile Include="class\clsMTReConferenciaDiaria.cs" />
+    <Compile Include="class\clsUsuarioLogado.cs" />
+    <Compile Include="class\clsUsuarioLogadoDados.cs" />
+    <Compile Include="class\clsTextoEmail.cs" />
+    <Compile Include="class\clsServicosDesenvolvedor.cs" />
+    <Compile Include="class\clsServicosDesenvolvedorDados.cs" />
+    <Compile Include="class\wp_FilesClientes.cs" />
+    <Compile Include="class\wp_FilesClientesDados.cs" />
+    <Compile Include="class\MTReConferenciaDiariaDados.cs" />
+    <Compile Include="clsDB.cs" />
+    <Compile Include="class\clsUsuarioDados.cs" />
+    <Compile Include="class\clsProgramacaoDados.cs" />
+    <Compile Include="geral.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

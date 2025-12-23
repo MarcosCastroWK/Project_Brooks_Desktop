@@ -1,0 +1,2 @@
+C:\Users\DEV\source\repos\Fabrica-Brooks\LibSILC\obj\Debug\LibSILC.csproj.AssemblyReference.cache
+C:\Users\DEV\source\repos\Fabrica-Brooks\LibSILC\obj\Debug\LibSILC.csproj.CoreCompileInputs.cache

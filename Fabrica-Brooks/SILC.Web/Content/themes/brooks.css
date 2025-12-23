@@ -1,0 +1,394 @@
+@font-face {
+    font-family: 'GillSans';
+    src: url('../fonts/gillsans/gillsans.eot');
+    src: url('../fonts/gillsans/gillsans.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/gillsans/gillsans.woff') format('woff'),
+        url('../fonts/gillsans/gillsans.ttf') format('truetype'),
+        url('../fonts/gillsans/gillsans.svg#GillSans') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    font: 13px/21px "GillSans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #636162;
+    -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+    -webkit-text-size-adjust: 100%;
+    background: #e8e8e8 url('../img/brooks_background.jpg');
+}
+#brooks-wrapper{ background: transparent url('../img/bg_shadown.png') center center repeat-y ; width: 1070px;margin: auto;  }
+
+#top,
+#menu,
+#banner,
+.phrase,
+.feature,
+.footer,
+/*.quality-feature,
+.building-brooks,
+*/
+.wrapper-content{
+    width: 995px;
+    margin: auto;
+}
+
+#top{background-color:#f0f0f0;height:110px;border-bottom:solid 4px #fff;position:relative}
+#top .logo{position:absolute;top:24px;left:45px}
+#top .login-form-client{width:263px;height:109px;position:absolute;top:0;right:0;background:url(../img/bg_form_client.png) no-repeat}
+#top .login-form-client p{width:120px;float:right;color:#9c161e;height:20px;padding-top:6px; text-align: right; margin-right: 30px; }
+#top .login-form-client form{float:right;width:200px;margin-top:15px;margin-right:30px; }
+#top .login-form-client form label{display:block;color:#fff;margin-bottom:8px;float:right;}
+#top .login-form-client form label input[type=text],
+#top .login-form-client form label input[type=password]{font:inherit;outline:none;border:1px solid #f5f5f5;background:url(../img/bg_input.png) center center repeat-x;width:130px;height:19px;line-height:16px;-moz-border-radius:20px;-webkit-border-radius:20px;-khtml-border-radius:20px;border-radius:20px;padding:0 8px}
+
+label.senha{width: 160px;float: left !important;position: relative;left: 22px;}
+label.senha input#password{  width: 94px !important}
+.labelSubmit{position: relative;z-index: 100;padding: 0px;}
+.labelSubmit input[type=submit]{
+    border: none;
+    font-size: 10px;
+    padding: 4px 8px;
+    background-color: #a3a2a2;
+    color:#fff;
+    -moz-border-radius:8px;-webkit-border-radius:8px;-khtml-border-radius:8px;border-radius:8px;
+}
+
+/*   ENABLE CSS TRANSITIONS    */
+#menu ul li,
+.item-feature .item-feature-content span.image,
+#areacontato{
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+/*   MENU    */
+#menu{clear:both;height:39px;position:absolute}
+#menu .home-site{
+    height:39px;
+    width: 39px;
+    background: url("../img/home-btn.png") left -3px no-repeat;
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    cursor: pointer;
+}
+#menu ul{width:867px;height:39px;margin:auto;padding:0 10px}
+#menu ul li{width:173px;height:38px;float:left;display:inline-block;text-align:center;background:url(../img/bg_menu_item.png) center -53px no-repeat;margin:0}
+#menu ul li a{width:160px;display:inline-block;text-decoration:none;padding-top:3px;color:#b61d24;text-transform:lowercase;margin:0 3px}
+#menu ul li:hover{opacity: 0.6}
+#menu ul li:hover a{color: #666}
+#menu ul li.active{opacity: 0.6}
+
+/*   BANNER    */
+#banner{background-color: black; height: 277px;position: absolute;top: 0px;left: 0px;}
+
+/* ADDITIONAL    */
+.relative{ position: relative;width: 995px;margin: auto;height: 277px;} /* NOT USE !! */
+.clr{ clear: both}
+
+/* PHRASE */
+.phrase{height:68px;background:url(../img/bg_phrase.png) repeat-x left top #f0f0f0}
+.phrase p{height:68px;display:inline-block;padding-left:16px;padding-right:130px;color:#a91c26;font-size:17px;line-height:50px;background:url(../img/bg_phrase_large.png) no-repeat right top}
+
+/* FEATURES */
+.feature{border-bottom:solid 2px #a91c26;background:#f0f0f0;}
+.feature .item-feature{width:81px;height:170px;text-align:center;float:left; margin-left: 1px;}
+.feature .item-feature:hover{color:#a91c26;cursor:pointer}
+.feature .item-feature .item-feature-content{height:150px;padding:15px 0 0}
+
+.item-feature .item-feature-content span.image{
+    display:inline-block;float:left;width:80px;height:70px;margin:0;
+    background: url(../img/feature_list_2.png) no-repeat center -5px
+}
+/* normal state */
+.item-feature-content span.image.um{ background-position: 11px top }
+.item-feature-content span.image.dois{ background-position: -77px top}
+.item-feature-content span.image.tres{ background-position: -165px top}
+.item-feature-content span.image.quatro{ background-position: -253px top}
+.item-feature-content span.image.cinco{ background-position: -334px top}
+.item-feature-content span.image.seis{ background-position: -407px top}
+.item-feature-content span.image.sete{ background-position: -490px top}
+.item-feature-content span.image.oito{ background-position: -575px top}
+.item-feature-content span.image.nove{ background-position: -656px top}
+.item-feature-content span.image.dez{ background-position: -740px top}
+.item-feature-content span.image.onze{ background-position: -823px top}
+.item-feature-content span.image.doze{ background-position: -903px top}
+/* hover */
+.item-feature-content:hover span.image.um{ background-position: 11px bottom }
+.item-feature-content:hover span.image.dois{ background-position: -77px bottom}
+.item-feature-content:hover span.image.tres{ background-position: -165px bottom}
+.item-feature-content:hover span.image.quatro{ background-position: -253px bottom}
+.item-feature-content:hover span.image.cinco{ background-position: -334px bottom}
+.item-feature-content:hover span.image.seis{ background-position: -407px bottom}
+.item-feature-content:hover span.image.sete{ background-position: -490px bottom}
+.item-feature-content:hover span.image.oito{ background-position: -575px bottom}
+.item-feature-content:hover span.image.nove{ background-position: -656px bottom}
+.item-feature-content:hover span.image.dez{ background-position: -740px bottom}
+.item-feature-content:hover span.image.onze{ background-position: -823px bottom}
+.item-feature-content:hover span.image.doze{ background-position: -903px bottom}
+/* active */
+.item-feature-content.active span.image.um{ background-position: 11px bottom }
+.item-feature-content.active span.image.dois{ background-position: -77px bottom}
+.item-feature-content.active span.image.tres{ background-position: -165px bottom}
+.item-feature-content.active span.image.quatro{ background-position: -253px bottom}
+.item-feature-content.active span.image.cinco{ background-position: -334px bottom}
+.item-feature-content.active span.image.seis{ background-position: -407px bottom}
+.item-feature-content.active span.image.sete{ background-position: -490px bottom}
+.item-feature-content.active span.image.oito{ background-position: -575px bottom}
+.item-feature-content.active span.image.nove{ background-position: -656px bottom}
+.item-feature-content.active span.image.dez{ background-position: -740px bottom}
+.item-feature-content.active span.image.onze{ background-position: -823px bottom}
+.item-feature-content.active span.image.doze{ background-position: -903px bottom}
+/*
+.item-feature-content.active{
+    opacity: 0.5;
+}
+*/
+
+.item-feature-content p{ line-height: 14px; font-size: 12px; float: left; width: 88px;}
+
+.icon-services{
+    width: 100px;
+    height: 70px;
+    background: url('../img/feature_list_on_page.png') top left no-repeat;
+    margin: auto;
+    margin-bottom: 8px;
+}
+.icon-services.logistica-reversa{background-position: left -770px }
+.icon-services.destinacao-final-de-residuos{background-position: left -700px;}
+.icon-services.dtr-deposito-temporario-de-residuos{background-position: left -630px; }
+.icon-services.uste-unidade-solar-de-tratamento-de-efluentes{background-position: left -560px; }
+.icon-services.gestao-global-de-residuos-in-company{background-position: left -490px; }
+.icon-services.hidrojateamento-succao-a-vacuo-e-desobstrucao{background-position: left -420px; }
+.icon-services.rss-residuo-de-servicos-de-saude{background-position: left -350px; }
+.icon-services.rcd-residuo-de-construcao-demolicao{background-position: left -280px; }
+.icon-services.coleta-de-residuos-industriais-e-comerciais{background-position: left -210px; }
+.icon-services.coleta-seletiva-valoracao-de-residuos{background-position: left -140px; }
+.icon-services.assessoria-ambiental{ background-position: left -70px; }
+
+/* WIDGET */
+.building-brooks .image {background: url('../img/brooks_home_bottom.jpg')no-repeat right top}
+
+/* FOOTER */
+.footer{height:100px;padding-bottom:20px;background:url(../img/bg_footer.png) no-repeat right top #f0f0f0}
+.footer p{font-size:14px;float:left;margin-top:55px;margin-left:30px;color:#777}
+
+
+
+
+
+
+
+
+/* HOME */
+.quality-feature{height:202px;background:url(../img/bg_quality_phrase.jpg) no-repeat left center}
+.quality-feature .title{width:240px;height:200px;float:left}
+.quality-feature .title h3{font-size:33px;line-height:32px;color:#b61d24;width:170px;height:60px;font-weight:lighter;position:relative;top:70px;left:67px}
+.quality-feature .title h3 strong{font-weight:900}
+.quality-feature .content{height:202px;width:750px;float:left;font-size:14px}
+.quality-feature .content ul{height:132px;width:600px;margin-top:50px;margin-left:90px}
+.quality-feature .content ul li{list-style:disc;margin-bottom:12px;width:540px;padding:0}
+.quality-feature .content ul li:last-child{margin-left:30px}
+
+.building-brooks{height:215px;background-color:red;position:relative;}
+.building-brooks h1{width:100%;background:url(../img/bg_building.png) -90px top no-repeat;height:83px;position:absolute;top:0;left:0;font-weight:lighter;font-size:26px;}
+.building-brooks h1 span{margin-top:22px;display:inline-block;margin-left:30px;color:#a91c26;}
+.building-brooks .content{background-color:#838282;width:440px;height:215px;float:left;}
+.building-brooks .content ul{float:left;margin-top:90px;margin-left:28px;color:#fff;font-size:13px;}
+.building-brooks .content ul li{margin-bottom:5px;}
+.building-brooks .image{width:555px;height:215px;background-color:#000;float:right;}
+
+/* BROOKS */
+.page-brooks{
+
+}
+.vertical-gradient{
+    background: url('../img/bg_vertica_gradient.jpg') left top repeat-y;
+}
+.diagonal-gradient{
+    background: url('../img/bg_diagonal_gradient.jpg') left top no-repeat;
+    min-height: 325px;
+}
+.diagonal-gradient .title {
+    width: 315px;
+    float: left;
+    text-align: center;
+    color: #a91c26;
+    margin-top: 140px;
+    margin-right: 35px;
+}
+.diagonal-gradient .title h2{
+    font-weight: lighter;
+}
+.diagonal-gradient .content {
+    width: 550px;
+    margin: 50px 0 50px 50px;
+    float: left;
+    font-size: 15px;
+    color: #838282
+}
+.diagonal-gradient .content p{ margin-bottom: 10px;}
+
+
+.pergunta{ margin-bottom: 15px;}
+.pergunta.active > span,
+.pergunta:hover > span{ font-weight: bold; cursor: pointer}
+.resposta { padding-bottom: 15px; }
+
+#area-documentos{
+    background-color: #eee;
+    color: #838282;
+    padding: 50px 20px;
+}
+#area-documentos .left {
+    width: 576px;
+    float: left;
+}
+#area-documentos .right {
+    width: 310px;
+    float: right;
+}
+#area-documentos span.newfile{
+    color: #a91c26;
+    font-size: 13px;
+}
+#area-documentos .file-list{
+    background-color: #f7f7f7;
+    padding: 0px;
+    position: relative;
+}
+.docheader{ color: #ffffff; font-weight: bold}
+.docheader .docheader-left { float: left; background: #dcdcdc; padding: 5px; width: 454px}
+.docheader .docheader-right{ float: right;  background: #dcdcdc; padding: 5px; width: 100px; text-align: center}
+#area-documentos .file-list:hover{ background: #ccc}
+#area-documentos .file-list p {float: right; width: 100px;text-align: center; border-left: solid 2px #eeeeee; padding: 5px }
+#area-documentos .file-list h3{ font-size: 13px}
+#area-documentos .file-list a{color: #838282; text-decoration: none; float: left; width: 450px; padding: 5px 0px 5px 5px }
+#area-documentos .file-list a:hover{color: #9c161e;}
+#area-documentos .file-list.impar { background: #f7f7f7}
+#area-documentos .file-list.par { background: #fbfbfb}
+#area-documentos .file-list.newfile a{font-weight: bold}
+#area-documentos .file-list span {
+    color: #9c161e;
+    float: left;
+}
+
+#area-documentos .right form input[type="text"],
+#area-documentos .right form textarea{
+    border: none;
+    width: 300px;
+    padding: 8px;
+    margin-bottom: 10px;
+    -moz-border-radius:15px;-webkit-border-radius:15px;-khtml-border-radius:15px;border-radius:15px;
+    outline: none;
+    font-family: 'GillSans';
+}
+#area-documentos .right form textarea{ height: 100px; resize:none; }
+#area-documentos .right form input[type="submit"]{
+    float: right;
+    background-color: #a3a2a2;
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    -moz-border-radius:15px;-webkit-border-radius:15px;-khtml-border-radius:15px;border-radius:15px;
+}
+
+.form{
+    color: #838282;
+}
+.form input[type="text"],
+.form textarea{
+    outline: none;
+    border: none;
+    padding: 6px;
+    width: 400px;
+    font-size: 13px;
+    -moz-border-radius:15px;-webkit-border-radius:15px;-khtml-border-radius:15px;border-radius:15px;
+}
+
+.form textarea{
+    height: 130px;
+}
+.form input[type="submit"]{
+    background-color: #a3a2a2;
+    border: none;
+    color: #fff;
+    -moz-border-radius:15px;-webkit-border-radius:15px;-khtml-border-radius:15px;border-radius:15px;
+    padding: 8px 15px;
+}
+p.error{
+    color: #9c161e;
+    font-size: 12px;
+}
+
+#areacontato{
+    position: absolute;
+    float: left;
+    width: 125px;
+    height: 19px;
+    overflow: hidden;
+    text-align: left;
+    padding: 8px;
+    background-color: #fff;
+    -moz-border-radius:15px;-webkit-border-radius:15px;-khtml-border-radius:15px;border-radius:15px;
+}
+#areacontato:hover{
+    height: 140px;
+    -moz-box-shadow: 2px 3px 5px #888;
+    -webkit-box-shadow: 2px 3px 5px #888;
+    box-shadow: 2px 3px 5px #888;
+}
+#areacontato span{ display: block; margin-bottom: 3px; cursor: pointer  }
+#areacontato span:hover{ color: #9c161e}
+
+
+/* nav_banner.png */
+#slides {z-index: 0; position: absolute;}
+#slides .slides_container {
+    width:995px;
+    display:none;
+}
+#slides .slides_container a {
+    width:995px;
+    height:277px;
+    display:block;
+}
+#slides ul.pagination{
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+#slides ul.pagination{
+    width:190px;
+    position: absolute;
+    z-index: 100;
+    bottom: 10px;
+    left: 10px;
+}
+#slides ul.pagination li{}
+#slides ul.pagination li a{
+    float: left;
+    width: 19px;
+    height: 19px;
+    display: inline-block;
+    margin: 1px;
+    background: url('../img/nav_banner.png') center top no-repeat;
+    color: transparent;
+}
+#slides ul.pagination li.current a{background: url('../img/nav_banner.png') center bottom no-repeat;}
+
+
+.page-id-7 .content{
+    margin: 50px 0 50px 30px;
+}
+
+#loginForm p.error{
+    display: none !important;
+}
+#loginForm input[type="text"].required.error,
+#loginForm input[type="password"].required.error {
+
+    border-color: #b61d24 !important;
+}

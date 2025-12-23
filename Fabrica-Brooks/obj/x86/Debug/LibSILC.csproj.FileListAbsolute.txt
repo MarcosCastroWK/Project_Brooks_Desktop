@@ -1,0 +1,13 @@
+W:\webSILC\LibSILC\bin\x86\Debug\LibSILC.dll.config
+W:\webSILC\LibSILC\bin\x86\Debug\LibSILC.dll
+W:\webSILC\LibSILC\bin\x86\Debug\LibSILC.pdb
+W:\webSILC\LibSILC\bin\x86\Debug\EntityFramework.dll
+W:\webSILC\LibSILC\bin\x86\Debug\EntityFramework.SqlServer.dll
+W:\webSILC\LibSILC\bin\x86\Debug\MySql.Data.dll
+W:\webSILC\LibSILC\bin\x86\Debug\EntityFramework.xml
+W:\webSILC\LibSILC\bin\x86\Debug\EntityFramework.SqlServer.xml
+W:\webSILC\LibSILC\obj\x86\Debug\LibSILC.csprojAssemblyReference.cache
+W:\webSILC\LibSILC\obj\x86\Debug\LibSILC.csproj.CoreCompileInputs.cache
+W:\webSILC\LibSILC\obj\x86\Debug\LibSILC.csproj.CopyComplete
+W:\webSILC\LibSILC\obj\x86\Debug\LibSILC.dll
+W:\webSILC\LibSILC\obj\x86\Debug\LibSILC.pdb

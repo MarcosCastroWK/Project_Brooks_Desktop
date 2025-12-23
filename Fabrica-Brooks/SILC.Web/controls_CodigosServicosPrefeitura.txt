@@ -1,0 +1,16 @@
+<uc1:cabecalho cabecalho1
+<uc2:menu menu
+<asp:Label lblTitulo
+<asp:GridView Grade
+<asp:ImageButton ibnMudarSernha
+<asp:ImageButton ibnExcluir
+<asp:Label lblCodigo
+<uc4:INTEIRO7 intCodigo
+<asp:Label lblDescricao
+<asp:TextBox txtDescricao
+<asp:Label lblNomePref
+<asp:TextBox txtNomePrefeitura
+<asp:Button Salvar
+<asp:Button btnCancelar
+<asp:HiddenField hifCodigo
+<asp:Label lblMensagem

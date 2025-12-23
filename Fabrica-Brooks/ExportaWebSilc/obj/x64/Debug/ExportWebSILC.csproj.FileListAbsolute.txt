@@ -1,0 +1,15 @@
+W:\webSILC\ExportaWebSilc\bin\x64\Debug\ExportaWebSilc.exe.config
+W:\webSILC\ExportaWebSilc\bin\x64\Debug\ExportaWebSilc.exe
+W:\webSILC\ExportaWebSilc\bin\x64\Debug\ExportaWebSilc.pdb
+W:\webSILC\ExportaWebSilc\bin\x64\Debug\LibSILC.dll
+W:\webSILC\ExportaWebSilc\bin\x64\Debug\MySql.Data.dll
+W:\webSILC\ExportaWebSilc\bin\x64\Debug\LibSILC.pdb
+W:\webSILC\ExportaWebSilc\bin\x64\Debug\LibSILC.dll.config
+W:\webSILC\ExportaWebSilc\obj\x64\Debug\ExportWebSILC.csprojAssemblyReference.cache
+W:\webSILC\ExportaWebSilc\obj\x64\Debug\ExportaWebSILC.ExportaWebSILC.resources
+W:\webSILC\ExportaWebSilc\obj\x64\Debug\ExportaWebSilc.Properties.Resources.resources
+W:\webSILC\ExportaWebSilc\obj\x64\Debug\ExportWebSILC.csproj.GenerateResource.cache
+W:\webSILC\ExportaWebSilc\obj\x64\Debug\ExportWebSILC.csproj.CoreCompileInputs.cache
+W:\webSILC\ExportaWebSilc\obj\x64\Debug\ExportWebSILC.csproj.CopyComplete
+W:\webSILC\ExportaWebSilc\obj\x64\Debug\ExportaWebSilc.exe
+W:\webSILC\ExportaWebSilc\obj\x64\Debug\ExportaWebSilc.pdb
