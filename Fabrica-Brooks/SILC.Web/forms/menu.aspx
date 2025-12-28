@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="menu.aspx.cs" Inherits="SILC.Web.forms.forms_menu" %>
+﻿﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="menu.aspx.cs" Inherits="SILC.Web.forms.forms_menu" ResponseEncoding="utf-8" %>
 
 <%@ Register src="cabecalho.ascx" tagname="cabecalho" tagprefix="uc1" %>
 
@@ -9,6 +9,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <meta charset="utf-8" />
     <link href="table.css" type="text/css" rel="stylesheet" />
     <style  type="text/css">
      .CabecalhoMenu
@@ -37,3 +38,4 @@
     </form>
 </body>
 </html>
+

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Web.UI.WebControls;
 using SILCNegocios;
 using LibSILC;
@@ -95,11 +95,9 @@ namespace SILC.Web.forms
 
         protected void Menu1_MenuItemClick(object sender, System.Web.UI.WebControls.MenuEventArgs e)
         {
-            string _path = @"\\servidor\WinSILC\temp\";
-            string _pathArquivo = "";
             string strIPUsuario = Request.UserHostAddress.Replace(".", "");
             LerSessao(strIPUsuario);
-            _pathArquivo = _path + strIPUsuario.Replace(":", "") + ".txt";
+            
             if (Menu1.Items[0].ChildItems[0].Selected)
             {
                 Response.Write(AbreNovaAba("Caminhoes.aspx"));
@@ -164,9 +162,7 @@ namespace SILC.Web.forms
             {
                 //Programacao
                 //[codigousuario-usuario-opcaomenu].txt            
-                System.IO.StreamWriter sw = new System.IO.StreamWriter(_pathArquivo);
-                sw.WriteLine(RetorneDadoArquivo("", Menu1.Items[1].ChildItems[1].Value.ToString()));
-                sw.Close();
+                GravarArquivo(Menu1.Items[1].ChildItems[1].Value.ToString());
             }
             else if (Menu1.Items[1].ChildItems[2].Selected)
             {
@@ -177,17 +173,13 @@ namespace SILC.Web.forms
             {
                 //Locacao
                 //[codigousuario-usuario-opcaomenu].txt            
-                System.IO.StreamWriter sw = new System.IO.StreamWriter(_pathArquivo);
-                sw.WriteLine(RetorneDadoArquivo("", Menu1.Items[2].ChildItems[0].ChildItems[0].Value.ToString()));
-                sw.Close();
+                GravarArquivo(Menu1.Items[2].ChildItems[0].ChildItems[0].Value.ToString());
             }
             else if (Menu1.Items[2].ChildItems[0].ChildItems[1].Selected)
             {
                 //[codigousuario-usuario-opcaomenu].txt
                 //LocacaoProgramacao
-                System.IO.StreamWriter sw = new System.IO.StreamWriter(_pathArquivo);
-                sw.WriteLine(RetorneDadoArquivo("", Menu1.Items[2].ChildItems[0].ChildItems[1].Value.ToString()));
-                sw.Close();
+                GravarArquivo(Menu1.Items[2].ChildItems[0].ChildItems[1].Value.ToString());
             }
             else if (Menu1.Items[2].ChildItems[0].ChildItems[2].Selected)
             {
@@ -200,17 +192,13 @@ namespace SILC.Web.forms
             else if (Menu1.Items[2].ChildItems[0].ChildItems[4].Selected)
             {
                 //[codigousuario-usuario-opcaomenu].txt            
-                System.IO.StreamWriter sw = new System.IO.StreamWriter(_pathArquivo);
-                sw.WriteLine(RetorneDadoArquivo("", Menu1.Items[2].ChildItems[0].ChildItems[4].Value.ToString()));
-                sw.Close();
+                GravarArquivo(Menu1.Items[2].ChildItems[0].ChildItems[4].Value.ToString());
             }
             else if (Menu1.Items[2].ChildItems[2].Selected)
             {
                 // notas fiscais
                 //[codigousuario-usuario-opcaomenu].txt            
-                System.IO.StreamWriter sw = new System.IO.StreamWriter(_pathArquivo);
-                sw.WriteLine(RetorneDadoArquivo("", Menu1.Items[2].ChildItems[2].Value.ToString()));
-                sw.Close();
+                GravarArquivo(Menu1.Items[2].ChildItems[2].Value.ToString());
             }
             else if (Menu1.Items[2].ChildItems[3].Selected)
             {
@@ -232,45 +220,35 @@ namespace SILC.Web.forms
             {
                 //DTR app
                 //[codigousuario-usuario-opcaomenu].txt            
-                System.IO.StreamWriter sw = new System.IO.StreamWriter(_pathArquivo);
-                sw.WriteLine(RetorneDadoArquivo("", Menu1.Items[3].ChildItems[2].Value.ToString()));
-                sw.Close();
+                GravarArquivo(Menu1.Items[3].ChildItems[2].Value.ToString());
             }
             else if (Menu1.Items[4].ChildItems[0].Selected)
             {
                 //Importações
                 //Relatório da MTR-e - IMA
                 //[codigousuario-usuario-opcaomenu].txt            
-                System.IO.StreamWriter sw = new System.IO.StreamWriter(_pathArquivo);
-                sw.WriteLine(RetorneDadoArquivo("", Menu1.Items[4].ChildItems[0].Value.ToString()));
-                sw.Close();
+                GravarArquivo(Menu1.Items[4].ChildItems[0].Value.ToString());
             }
             else if (Menu1.Items[4].ChildItems[1].Selected)
             {
                 //Importações
                 //Sistema IMA - Atualizar senhas
                 //[codigousuario-usuario-opcaomenu].txt
-                System.IO.StreamWriter sw = new System.IO.StreamWriter(_pathArquivo);
-                sw.WriteLine(RetorneDadoArquivo("", Menu1.Items[4].ChildItems[1].Value.ToString()));
-                sw.Close();
+                GravarArquivo(Menu1.Items[4].ChildItems[1].Value.ToString());
             }
             else if (Menu1.Items[4].ChildItems[2].Selected)
             {
                 //Importações
                 //Importar dados Radar
                 //[codigousuario-usuario-opcaomenu].txt
-                System.IO.StreamWriter sw = new System.IO.StreamWriter(_pathArquivo);
-                sw.WriteLine(RetorneDadoArquivo("", Menu1.Items[4].ChildItems[2].Value.ToString()));
-                sw.Close();
+                GravarArquivo(Menu1.Items[4].ChildItems[2].Value.ToString());
             }
             else if (Menu1.Items[4].ChildItems[3].Selected)
             {
                 //Importações
                 //Relatório da MTR-e - IMA para Conferência diária
                 //[codigousuario-usuario-opcaomenu].txt
-                System.IO.StreamWriter sw = new System.IO.StreamWriter(_pathArquivo);
-                sw.WriteLine(RetorneDadoArquivo("", Menu1.Items[4].ChildItems[3].Value.ToString()));
-                sw.Close();
+                GravarArquivo(Menu1.Items[4].ChildItems[3].Value.ToString());
             }
             else if (Menu1.Items[5].Selected)
             {
@@ -278,9 +256,7 @@ namespace SILC.Web.forms
                 //[codigousuario-usuario-opcaomenu].txt
                 if (geral.CodigoUsuarioAtual == 10)
                 {
-                    System.IO.StreamWriter sw = new System.IO.StreamWriter(_pathArquivo);
-                    sw.WriteLine(RetorneDadoArquivo("", Menu1.Items[5].Value.ToString()));
-                    sw.Close();
+                    GravarArquivo(Menu1.Items[5].Value.ToString());
                 }
                 else
                 {
@@ -292,20 +268,43 @@ namespace SILC.Web.forms
             {
                 //Documentação Aplicável
                 //[codigousuario-usuario-opcaomenu].txt
-                System.IO.StreamWriter sw = new System.IO.StreamWriter(_pathArquivo);
-                sw.WriteLine(RetorneDadoArquivo("", Menu1.Items[6].Value.ToString()));
-                sw.Close();
+                GravarArquivo(Menu1.Items[6].Value.ToString());
             }
             else if (Menu1.Items[8].ChildItems[7].Selected)
             {
                 //Relatórios
                 //Relatório de Indicadores
                 //[codigousuario-usuario-opcaomenu].txt
-                System.IO.StreamWriter sw = new System.IO.StreamWriter(_pathArquivo);
-                sw.WriteLine(RetorneDadoArquivo("", Menu1.Items[8].ChildItems[7].Value.ToString()));
-                sw.Close();
+                GravarArquivo(Menu1.Items[8].ChildItems[7].Value.ToString());
             }
         }
+        
+        private void GravarArquivo(string valor)
+        {
+            try
+            {
+                string _path = @"\\servidor\WinSILC\temp\";
+                
+                // Verifica se o diretório existe para evitar exceções de rede
+                if (!System.IO.Directory.Exists(_path))
+                {
+                    return;
+                }
+
+                string strIPUsuario = Request.UserHostAddress.Replace(".", "");
+                string _pathArquivo = _path + strIPUsuario.Replace(":", "") + ".txt";
+
+                using (System.IO.StreamWriter sw = new System.IO.StreamWriter(_pathArquivo))
+                {
+                    sw.WriteLine(RetorneDadoArquivo("", valor));
+                }
+            }
+            catch (Exception)
+            {
+                // Abstraindo erro conforme solicitado
+            }
+        }
+
         private string RetorneDadoArquivo(string _dadoArquivo, string _OpcaoMenu)
         {
             _dadoArquivo = _dadoArquivo + geral.CodigoUsuarioAtual + "-";
