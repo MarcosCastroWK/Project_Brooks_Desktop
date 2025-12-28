@@ -197,7 +197,8 @@ namespace SILC.Web.forms
             else if (Menu1.Items[2].ChildItems[2].Selected)
             {
                 // notas fiscais
-                //[codigousuario-usuario-opcaomenu].txt            
+                //[codigousuario-usuario-opcaomenu].txt
+                //Aqui o sistema grava o arquivo.
                 GravarArquivo(Menu1.Items[2].ChildItems[2].Value.ToString());
             }
             else if (Menu1.Items[2].ChildItems[3].Selected)

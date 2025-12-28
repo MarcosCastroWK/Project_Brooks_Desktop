@@ -58,8 +58,9 @@ namespace formSILC
                 }
                 finally
                 {
-                    butConsultaNF.Enabled = false;
-                    ChamadaParaIPM();
+                    //Aqui dispara requisição para integração com a prefeitura
+                    //butConsultaNF.Enabled = false;
+                    //ChamadaParaIPM();
                 }
             }
         }
