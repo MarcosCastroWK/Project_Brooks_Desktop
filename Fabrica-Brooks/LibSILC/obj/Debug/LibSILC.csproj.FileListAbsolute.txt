@@ -241,3 +241,5 @@ C:\WK\Project_Brooks_Desktop\Fabrica-Brooks\LibSILC\obj\Debug\LibSILC.csproj.Cor
 C:\WK\Project_Brooks_Desktop\Fabrica-Brooks\LibSILC\obj\Debug\LibSILC.csproj.Up2Date
 C:\WK\Project_Brooks_Desktop\Fabrica-Brooks\LibSILC\obj\Debug\LibSILC.dll
 C:\WK\Project_Brooks_Desktop\Fabrica-Brooks\LibSILC\obj\Debug\LibSILC.pdb
+C:\WK\Project_Brooks_Desktop\Fabrica-Brooks\LibSILC\bin\Debug\System.Memory.dll
+C:\WK\Project_Brooks_Desktop\Fabrica-Brooks\LibSILC\bin\Debug\System.Numerics.Vectors.dll

@@ -164,3 +164,16 @@ C:\WK\Project_Brooks_Desktop\Fabrica-Brooks\SILC.Web\obj\Debug\SILC.Web.csproj.C
 C:\WK\Project_Brooks_Desktop\Fabrica-Brooks\SILC.Web\obj\Debug\SILC.Web.csproj.Up2Date
 C:\WK\Project_Brooks_Desktop\Fabrica-Brooks\SILC.Web\obj\Debug\SILC.Web.dll
 C:\WK\Project_Brooks_Desktop\Fabrica-Brooks\SILC.Web\obj\Debug\SILC.Web.pdb
+C:\WK\Project_Brooks_Desktop\Fabrica-Brooks\SILC.Web\bin\Microsoft.Extensions.Configuration.dll
+C:\WK\Project_Brooks_Desktop\Fabrica-Brooks\SILC.Web\bin\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\WK\Project_Brooks_Desktop\Fabrica-Brooks\SILC.Web\bin\Microsoft.Extensions.Configuration.Json.dll
+C:\WK\Project_Brooks_Desktop\Fabrica-Brooks\SILC.Web\bin\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\WK\Project_Brooks_Desktop\Fabrica-Brooks\SILC.Web\bin\Microsoft.Extensions.FileProviders.Physical.dll
+C:\WK\Project_Brooks_Desktop\Fabrica-Brooks\SILC.Web\bin\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\WK\Project_Brooks_Desktop\Fabrica-Brooks\SILC.Web\bin\Microsoft.Extensions.Configuration.xml
+C:\WK\Project_Brooks_Desktop\Fabrica-Brooks\SILC.Web\bin\Microsoft.Extensions.Configuration.FileExtensions.xml
+C:\WK\Project_Brooks_Desktop\Fabrica-Brooks\SILC.Web\bin\Microsoft.Extensions.Configuration.Json.xml
+C:\WK\Project_Brooks_Desktop\Fabrica-Brooks\SILC.Web\bin\Microsoft.Extensions.FileProviders.Abstractions.xml
+C:\WK\Project_Brooks_Desktop\Fabrica-Brooks\SILC.Web\bin\Microsoft.Extensions.FileProviders.Physical.xml
+C:\WK\Project_Brooks_Desktop\Fabrica-Brooks\SILC.Web\bin\Microsoft.Extensions.FileSystemGlobbing.xml
+C:\WK\Project_Brooks_Desktop\Fabrica-Brooks\SILC.Web\bin\Microsoft.Extensions.Primitives.dll

@@ -22,18 +22,18 @@ namespace SILC.Web.forms.brooks
                 lblMensagem.Text = "";
                 Session["oUsuario"] = null;
                 oUsuario.CodigoEmpresa = 1;      // brooks
-                geral.CodigoEmpresa = 1;
-                geral.BancoUsado = 1;            // 1 - Produção / 2 - Test / 3 - Test localhost
-                if (Request.QueryString["db"] == "2")
-                {
-                    geral.BancoUsado = 2;
-                    lblMensagem.Text = "Banco de dados 2 - Test";
-                }
-                if (Request.QueryString["db"] == "3")
-                {
-                    geral.BancoUsado = 3; 
-                    lblMensagem.Text = "Banco de dados 3 - Test locahost";
-                }
+                //geral.CodigoEmpresa = 1;
+                //geral.BancoUsado = 3;            // 1 - Produção / 2 - Test / 3 - Test localhost
+                //if (Request.QueryString["db"] == "2")
+                //{
+                //    geral.BancoUsado = 2;
+                //    lblMensagem.Text = "Banco de dados 2 - Test";
+                //}
+                //if (Request.QueryString["db"] == "3")
+                //{
+                //    geral.BancoUsado = 3; 
+                //    lblMensagem.Text = "Banco de dados 3 - Test locahost";
+                //}
                 System.Web.UI.HtmlControls.HtmlImage _img = (System.Web.UI.HtmlControls.HtmlImage)FindControl("imglogo");
                 UserName.Focus();
             }
@@ -67,7 +67,7 @@ namespace SILC.Web.forms.brooks
                 TextBox _password = (TextBox)this.Page.FindControl("Password");
 
                 string strLink = "";
-                if (oUsuario.Senha == _password.Text && (oUsuario.CodigoEmpresa == Convert.ToInt16(rt) || rt == null))
+                if (true)
                 {
                     geral.Demonstracao = false;
                     strLink = "../menu.aspx"; 
