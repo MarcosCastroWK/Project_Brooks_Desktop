@@ -46,7 +46,7 @@
                         <table>
                             <tr>
                                 <td>
-                                    <asp:Label ID="Label1" runat="server" Text="Permiss�es de acesso do Menu Principal" CssClass="titulo2"></asp:Label>
+                                    <asp:Label ID="Label1" runat="server" Text="Permissões de acesso do Menu Principal" CssClass="titulo2"></asp:Label>
                                 </td>
                             </tr>
                         </table>
@@ -60,10 +60,10 @@
                                     &nbsp;<asp:Button ID="btnSalvar" runat="server" Text="Salvar" OnClick="btnSalvar_Click" />
                                 </td>
                                 <td>
-                                    &nbsp;<asp:Button ID="btnLiberarTodas" runat="server" Text="Liberar todas permiss�es-excluir" OnClick="btnLiberarTodas_Click" Width="216px" />
+                                    &nbsp;<asp:Button ID="btnLiberarTodas" runat="server" Text="Liberar todas permissões-excluir" OnClick="btnLiberarTodas_Click" Width="216px" />
                                 </td>
                                 <td>
-                                    &nbsp;<asp:Button ID="btnTirarTodas" runat="server" Text="Tirar todas permiss�es -excluir" Width="205px" OnClick="btnTirarTodas_Click" />
+                                    &nbsp;<asp:Button ID="btnTirarTodas" runat="server" Text="Tirar todas permissões -excluir" Width="205px" OnClick="btnTirarTodas_Click" />
                                 </td>
                             </tr>
                         </table>
@@ -83,11 +83,11 @@
                                                 </ItemTemplate>
                                                 <ItemStyle Width="1%" />
                                             </asp:TemplateField>
-                                            <asp:BoundField DataField="Codigo" HeaderText="C�digo" SortExpression="Codigo">
+                                            <asp:BoundField DataField="Codigo" HeaderText="Código" SortExpression="Codigo">
                                             <HeaderStyle CssClass="padItemGrade" />
                                             <ItemStyle CssClass="padItemGrade" HorizontalAlign="Right" Width="40px" />
                                             </asp:BoundField>
-                                            <asp:BoundField DataField="Nome" HeaderText="Nome do Usu�rio" SortExpression="Nome">
+                                            <asp:BoundField DataField="Nome" HeaderText="Nome do Usuário" SortExpression="Nome">
                                             <HeaderStyle CssClass="padItemGrade" HorizontalAlign="Left" />
                                             <ItemStyle CssClass="padItemGrade" />
                                             <ItemStyle CssClass="padItemGrade" HorizontalAlign="Left" Width="280px" />
@@ -107,13 +107,13 @@
                                     <asp:GridView ID="Grade" runat="server" CellPadding="2" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" Font-Names="verdana" Font-Size="9px" ClientIDMode="AutoID" AutoGenerateColumns="false" ForeColor="Black" GridLines="Vertical" Font-Bold="False" OnRowDataBound="Grade_RowDataBound" >
                                         <AlternatingRowStyle BackColor="#CCCCCC" />
                                         <Columns>
-                                            <asp:TemplateField HeaderText="C�d.Item">
+                                            <asp:TemplateField HeaderText="Cód.Item">
                                                 <ItemTemplate>
                                                     <asp:TextBox ID="txtCodigoItemMenu" runat="server" Enabled="false" CssClass="LetrasLabel" BackColor="#ffffcc" BorderStyle="None" MaxLength="6" Text='<%# Bind("CodigoItemMenu") %>' Width="50px" style="text-align:right"></asp:TextBox>
                                                 </ItemTemplate>
                                                 <ItemStyle CssClass="padItemGrade" HorizontalAlign="Right" />
                                             </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="Descri��o item menu">
+                                            <asp:TemplateField HeaderText="Descrição item menu">
                                                 <ItemTemplate>
                                                     <asp:TextBox ID="txtItem" runat="server" Enabled="false" Width="400px" BackColor="#ffffcc" BorderStyle="None" CssClass="LetrasLabel" Text='<%# Bind("Item") %>'></asp:TextBox>
                                                 </ItemTemplate>
