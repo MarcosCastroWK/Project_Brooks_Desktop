@@ -33,3 +33,4 @@ packages/
 
 # Web files
 *.log
+build_log*.txt
