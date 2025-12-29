@@ -56,8 +56,10 @@ namespace formSILC
                 //    Program.uri = new System.Uri("http://servidor/forms/fastcompost/login.aspx");
                 //webBrowser1.Url = Program.uri;
 
-                
+                //Para rodar local
+                //Program.uri = new System.Uri("https://localhost:44311/forms/brooks/loginaplicativo.aspx");
                 Program.uri = new System.Uri(_urlConfigs.LoginAplicativo);
+
                 webBrowser1.Url = Program.uri;
                 webBrowser1.Refresh();
             }

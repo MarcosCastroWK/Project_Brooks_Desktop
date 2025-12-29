@@ -810,7 +810,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMenu";
             this.Text = "SILC - Sistema Integrao de Locação de Containeres                                " +
-    "                                                        Versão: 04/06/2025-r0";
+    "                                                        Versão: 29/12/2025-r0";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMenu_Load);
             this.menuStrip1.ResumeLayout(false);

@@ -16,7 +16,8 @@ namespace SILC.Web.forms
             {
                 string strIPUsuario = Request.UserHostAddress.Replace(".", "");
                 LerSessao(strIPUsuario);
-
+                //Para Rodar Local
+                //if (true)
                 if (LibSILC.geral.BancoUsado > 1)
                 {
                     for (int i = 0; i < Menu1.Items.Count; i++)

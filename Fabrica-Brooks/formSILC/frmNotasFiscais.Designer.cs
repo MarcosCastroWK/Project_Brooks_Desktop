@@ -450,40 +450,43 @@
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(42, 13);
             this.label28.TabIndex = 214;
-            this.label28.Text = "Motivo:";
+            //this.label28.Text = "Motivo:";
             // 
             // txtMotivoCancelamento
             // 
-            this.txtMotivoCancelamento.Location = new System.Drawing.Point(607, 36);
-            this.txtMotivoCancelamento.MaxLength = 100;
-            this.txtMotivoCancelamento.Name = "txtMotivoCancelamento";
-            this.txtMotivoCancelamento.Size = new System.Drawing.Size(288, 20);
-            this.txtMotivoCancelamento.TabIndex = 213;
-            this.txtMotivoCancelamento.TabStop = false;
+            //Removido por conta da Nota Nascional
+            //this.txtMotivoCancelamento.Location = new System.Drawing.Point(607, 36);
+            //this.txtMotivoCancelamento.MaxLength = 100;
+            //this.txtMotivoCancelamento.Name = "txtMotivoCancelamento";
+            //this.txtMotivoCancelamento.Size = new System.Drawing.Size(288, 20);
+            //this.txtMotivoCancelamento.TabIndex = 213;
+            //this.txtMotivoCancelamento.TabStop = false;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.Color.Red;
-            this.btnCancelar.Location = new System.Drawing.Point(607, 7);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(118, 26);
-            this.btnCancelar.TabIndex = 212;
-            this.btnCancelar.TabStop = false;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // Removido por conta da Nota Nascional
+            //this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //this.btnCancelar.ForeColor = System.Drawing.Color.Red;
+            //this.btnCancelar.Location = new System.Drawing.Point(607, 7);
+            //this.btnCancelar.Name = "btnCancelar";
+            //this.btnCancelar.Size = new System.Drawing.Size(118, 26);
+            //this.btnCancelar.TabIndex = 212;
+            //this.btnCancelar.TabStop = false;
+            //this.btnCancelar.Text = "Cancelar";
+            //this.btnCancelar.UseVisualStyleBackColor = true;
+            //this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // butNFIPM
             // 
-            this.butNFIPM.Location = new System.Drawing.Point(901, 33);
-            this.butNFIPM.Name = "butNFIPM";
-            this.butNFIPM.Size = new System.Drawing.Size(75, 23);
-            this.butNFIPM.TabIndex = 211;
-            this.butNFIPM.TabStop = false;
-            this.butNFIPM.Text = "NF IPM";
-            this.butNFIPM.UseVisualStyleBackColor = true;
-            this.butNFIPM.Click += new System.EventHandler(this.butNFIPM_Click);
+            //Removido por conta da Nota Nascional
+            //this.butNFIPM.Location = new System.Drawing.Point(901, 33);
+            //this.butNFIPM.Name = "butNFIPM";
+            //this.butNFIPM.Size = new System.Drawing.Size(75, 23);
+            //this.butNFIPM.TabIndex = 211;
+            //this.butNFIPM.TabStop = false;
+            //this.butNFIPM.Text = "NF IPM";
+            //this.butNFIPM.UseVisualStyleBackColor = true;
+            //this.butNFIPM.Click += new System.EventHandler(this.butNFIPM_Click);
             // 
             // btnAnular
             // 

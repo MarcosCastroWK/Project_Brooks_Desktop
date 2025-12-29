@@ -14,6 +14,9 @@ namespace LibSILC
             _silcConfig = new SilcConfigurationManager();
             //connectionString = "Persist Security Info=false;server=SERVIDOR;password=yes;uid=root;database=ewvs;pwd=BR**ks729;Connect Timeout=360;pooling=false;";
             connectionString = "Persist Security Info=false;server=SERVIDOR;password=yes;uid=root;database=brooks;pwd=admin;Connect Timeout=360;pooling=false;";
+            //Para Rodar Local
+            //connectionString = "Persist Security Info=false;server=db-homologacao.mysql.database.azure.com;Port=3306;Database=brooks_new;Uid=brooks;Pwd=Brooks2024@;;Connect Timeout=360;pooling=false;";
+
         }
 
         void IDisposable.Dispose() { }

@@ -12,7 +12,10 @@ namespace formSILC
     {
         /*public static System.Uri uri = new System.Uri("http://localhost:26089/WebSite1/forms/brooks/loginaplicativo.aspx");*/
 
+        //Para rodar local
+        //public static System.Uri uri = new System.Uri("https://localhost:44311/forms/brooks/loginaplicativo.aspx");
         public static System.Uri uri = new System.Uri("http://servidor/forms/brooks/loginaplicativo.aspx");
+
 
         /// <summary>
         /// The main entry point for the application.
